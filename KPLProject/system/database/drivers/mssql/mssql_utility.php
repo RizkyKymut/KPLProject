@@ -68,10 +68,8 @@ class CI_DB_mssql_utility extends CI_DB_utility {
 	 * @param	array	$params	Preferences
 	 * @return	bool
 	 */
-	protected function _backup($params = array())
-	{
+	
 		// Currently unsupported
-		return $this->db->display_error('db_unsupported_feature');
-	}
+	
 
 }

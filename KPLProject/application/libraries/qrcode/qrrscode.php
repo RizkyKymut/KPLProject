@@ -148,7 +148,7 @@
             $INDEX_OF =& $this->index_of;
             $GENPOLY  =& $this->genpoly;
             $NROOTS   =& $this->nroots;
-            $FCR      =& $this->fcr;
+          
            
            
             $PAD      =& $this->pad;

@@ -285,7 +285,7 @@
         public function mask($width, $frame, $level)
         {
             $minDemerit = PHP_INT_MAX;
-            $bestMaskNum = 0;
+           
             $bestMask = array();
             
             $checked_masks = array(0,1,2,3,4,5,6,7);
