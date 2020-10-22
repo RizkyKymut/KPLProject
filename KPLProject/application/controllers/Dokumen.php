@@ -780,23 +780,7 @@ Bersama ini kami menugaskan saudara : ' . $vpegawai->Namapeg . '
 	}
 
 	// Cek data kembar
-	public function checkDuplicateDL($post_email)
-	{
-
-		$this->db->where('pegawaidl', $email_id);
-
-		$query = $this->db->get('my_registration_table');
-
-		$count_row = $query->num_rows();
-
-		if ($count_row > 0) {
-			//if count row return any row; that means you have already this email address in the database. so you must set false in this sense.
-			return FALSE; // here I change TRUE to false.
-		} else {
-			// doesn't return any row means database doesn't have this email
-			return TRUE; // And here false to TRUE
-		}
-	}
+	
 
 	public  function Tglindo($tgl)
 	{
