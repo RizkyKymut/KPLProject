@@ -170,8 +170,7 @@ class Dokumen extends CI_Controller {
 		$data['tanggal_berangkat']	= $this->Tglindo($tanggal_berangkat);
 		$tanggal_pulang				= ($data[0]['tanggal_pulang']);
 		$data['tanggal_pulang']		= $this->Tglindo($tanggal_pulang);
-		$data['page']				= "page_dokumen";	
-	
+		$data['page']				= "page_dokumen";
 
 $subject = $data[0]['nosurat'];
  foreach ($pegawai as $vpegawai) {
@@ -246,7 +245,7 @@ Bersama ini kami menugaskan saudara : '.$vpegawai->Namapeg.'
 //$body = $this->email->full_html($subject, $message);
 
  
-
+->from('agus.widjanarko@kkp.go.id')
  
 ->to($vpegawai->email)
  
@@ -545,8 +544,8 @@ ob_flush();
 			    // Cek data kembar
 	public function checkDuplicateDL($post_email) {
 
-
     $query = $this->db->get('my_registration_table');
+
     $count_row = $query->num_rows();
 
     if ($count_row > 0) {
