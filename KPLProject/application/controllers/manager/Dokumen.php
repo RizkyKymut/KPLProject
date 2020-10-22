@@ -256,7 +256,6 @@ Bersama ini kami menugaskan saudara : '.$vpegawai->Namapeg.'
 ->send();
 
 
-//var_dump($result);
 //echo '<br />';
   
 //echo $this->email->print_debugger();
@@ -286,7 +285,7 @@ ob_flush();
 		
 
 		ob_start();
-		$fileName		        	= "";
+		
 		$nosurat			        = $this->input->post('nosurat');
 		$menimbang			        = $this->input->post('menimbang');
 		$dasar 			        	= $this->input->post('dasar');
@@ -347,7 +346,7 @@ ob_flush();
 			'keperluandl'		=> $keperluandl,
 			'tanggalttd'		=> $tanggalttd,
 			'pjttd'				=> $pjttd,
-			'pj'                => $pj,
+		
 			'class_id'			=> $kelas,
 			'id_trader'         => $trader[0],
           	'created_date' 		=> date('Y-m-d H:i:00'),
@@ -542,7 +541,7 @@ ob_flush();
 	}
 
 			    // Cek data kembar
-	public function checkDuplicateDL($post_email) {
+	
 
     $query = $this->db->get('my_registration_table');
 
