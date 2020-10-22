@@ -229,23 +229,23 @@ class Laporan extends CI_Controller {
 			} 
 	
 			public function update($id_doc){
-// 			$data['user'] = $this->db->get_where('tbl_users', ['email' => $this->session->userdata('emaila')])->row_array();
+			$data['user'] = $this->db->get_where('tbl_users', ['email' => $this->session->userdata('emaila')])->row_array();
 			ob_start();
 				// edit ediit elemen update
 						
-// 				$nosurat			= $this->input->post('nosurat');
-// 				$menimbang			= $this->input->post('menimbang');
-// 				$dasar 				= $this->input->post('dasar');
-// 				$kelas				= $this->input->post('kelas');
-// // 				$pegawai			= $this->input->post('pegawai');
-// 				$tujuandl			= $this->input->post('tujuandl');
-// 				$keperluandl		= $this->input->post('keperluandl');
-// 				$tanggalttd			= $this->input->post('tanggalttd');
-// 				$pj					= $this->input->post('pj');		
-// 				$pjttd				= $this->input->post('pjttd');
-// 				$tanggal_berangkat	= $this->input->post('tanggal_berangkat');
-// 				$tanggal_pulang   	= $this->input->post('tanggal_pulang');
-// 				$hsldinas			= $this->input->post('hsldinas');
+				$nosurat			= $this->input->post('nosurat');
+				$menimbang			= $this->input->post('menimbang');
+				$dasar 				= $this->input->post('dasar');
+				$kelas				= $this->input->post('kelas');
+				$pegawai			= $this->input->post('pegawai');
+				$tujuandl			= $this->input->post('tujuandl');
+				$keperluandl		= $this->input->post('keperluandl');
+				$tanggalttd			= $this->input->post('tanggalttd');
+				$pj					= $this->input->post('pj');		
+				$pjttd				= $this->input->post('pjttd');
+				$tanggal_berangkat	= $this->input->post('tanggal_berangkat');
+				$tanggal_pulang   	= $this->input->post('tanggal_pulang');
+				$hsldinas			= $this->input->post('hsldinas');
 
 // 				$this->db->set('LatarBelakang', $ltrblkng);
 				$this->db->where('id_doc', $id_doc);
