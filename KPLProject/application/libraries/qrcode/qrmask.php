@@ -317,7 +317,7 @@
                 if($demerit < $minDemerit) {
                     $minDemerit = $demerit;
                     $bestMask = $mask;
-                    $bestMaskNum = $i;
+                   
                 }
             }
             
