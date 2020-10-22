@@ -149,8 +149,8 @@
             $GENPOLY  =& $this->genpoly;
             $NROOTS   =& $this->nroots;
             $FCR      =& $this->fcr;
-            $PRIM     =& $this->prim;
-            $IPRIM    =& $this->iprim;
+           
+           
             $PAD      =& $this->pad;
             $A0       =& $NN;
 

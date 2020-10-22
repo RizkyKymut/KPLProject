@@ -357,8 +357,6 @@
             if( $index <= 0 || $index > MAX_STRUCTURED_SYMBOLS ) {
                 throw new Exception('insertStructuredAppendHeader wrong index');
             }
-
-            $buf = array($size, $index, $parity);
             
             try {
                 $entry = new QRinputItem(QR_MODE_STRUCTURE, 3, buf);
