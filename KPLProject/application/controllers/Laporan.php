@@ -237,7 +237,7 @@ class Laporan extends CI_Controller {
 				$menimbang			= $this->input->post('menimbang');
 				$dasar 				= $this->input->post('dasar');
 				$kelas				= $this->input->post('kelas');
-				$pegawai			= $this->input->post('pegawai');
+// 				$pegawai			= $this->input->post('pegawai');
 				$tujuandl			= $this->input->post('tujuandl');
 				$keperluandl		= $this->input->post('keperluandl');
 				$tanggalttd			= $this->input->post('tanggalttd');
