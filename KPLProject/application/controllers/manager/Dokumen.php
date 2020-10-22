@@ -19,11 +19,11 @@ class Dokumen extends CI_Controller {
 	{				
 		$this->load->helper('text');		
 		
-		$data['datas']	= $this->db_model->list_dok_ppc()->result_object();		
-		$data['kelas']	= $this->db->query("select * from tb_class")->result_object();
-		$data['pegawai']= $this->db->query("select * from tb_pegawai")->result_object();
-		$data['no_ppk']= $this->db->query("select * from v_upload_ops")->result_object();
-        $data['tr_trader']= $this->db->query("select * from tb_r_trader")->result_object();
+		$data['datas'] = $this->db_model->list_dok_ppc()->result_object();		
+		$data['kelas'] = $this->db->query("select * from tb_class")->result_object();
+		$data['pegawai'] = $this->db->query("select * from tb_pegawai")->result_object();
+		$data['no_ppk'] = $this->db->query("select * from v_upload_ops")->result_object();
+        $data['tr_trader'] = $this->db->query("select * from tb_r_trader")->result_object();
 		$data['verifikasi'] = $this->db->query("SELECT * FROM tb_dokumen WHERE nosurat='' ")->num_rows();
 		$data['selesai_ver'] = $this->db->query("SELECT * FROM tb_dokumen  WHERE nosurat>'' ")->num_rows();
 		
@@ -32,7 +32,7 @@ class Dokumen extends CI_Controller {
 		$data['sum_dl_today'] = $this->db->query("SELECT * FROM tb_detail_dokumen WHERE tanggal_berangkat >= CURRENT_DATE and tanggal_pulang <= CURRENT_DATE ")->num_rows();
 
 		
-		$data['page']	= "page_dokumen";		
+		$data['page'] = "page_dokumen";		
 		$this->load->view('admin/templates/header', $data);
 		$this->load->view('admin/templates/sidebar', $data);
 		$this->load->view('admin/page_dokumen', $data);
@@ -40,10 +40,10 @@ class Dokumen extends CI_Controller {
 	}
 	
 	public function add_dokumen(){
-		   $data['tr_trader']= $this->db->query("select * from tb_r_trader")->result_object();
+		   $data['tr_trader'] = $this->db->query("select * from tb_r_trader")->result_object();
 		   
 	 
-		$data['page']	= "add_dokumen";		
+		$data['page'] = "add_dokumen";		
 		$this->load->view('admin/templates/header', $data);
 		$this->load->view('admin/templates/sidebar', $data);
 		$this->load->view('admin/home', $data);

@@ -18,7 +18,7 @@ class CutiManager extends CI_Controller {
 	public function index()
 	{
 		$data['user'] = $this->db->get_where('tbl_users', ['email' => $this->session->userdata('emailm')])->row_array();
-		$data['data']	= $this->db_model->list_cuti()->result_object();				
+				
 		$data['page']	= "page_cuti";							
 		
 		$data['user'] = $this->db->get_where('tbl_users', ['email' => $this->session->userdata('emailm')])->row_array();
