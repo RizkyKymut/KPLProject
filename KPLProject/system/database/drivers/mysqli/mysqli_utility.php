@@ -96,13 +96,11 @@ class CI_DB_mysqli_utility extends CI_DB_utility {
 			$output .= 'SET foreign_key_checks = 0;'.$newline;
 		}
 
-		foreach ( (array) $tables as $table)
-		{
 			// Is the table in the "ignore" list?
 		
 			
 			// Get the table schema
-			$query = $this->db->query('SHOW CREATE TABLE '.$this->db->escape_identifiers($this->db->database.'.'.$table));
+		
 
 			// No result means the table name was invalid
 			if ($query === FALSE)
