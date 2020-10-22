@@ -239,15 +239,15 @@ class LaporanManager extends CI_Controller {
 						
 				$nosurat			= $this->input->post('nosurat');
 				$menimbang			= $this->input->post('menimbang');
-				$dasar 				= $this->input->post('dasar');
+			
 				$kelas				= $this->input->post('kelas');
 				$pegawai			= $this->input->post('pegawai');
-				$tujuandl			= $this->input->post('tujuandl');
+				
 				$keperluandl		= $this->input->post('keperluandl');
-				$tanggalttd			= $this->input->post('tanggalttd');
+			
 				$pj					= $this->input->post('pj');		
-				$pjttd				= $this->input->post('pjttd');
-				$tanggal_berangkat	= $this->input->post('tanggal_berangkat');
+			
+				
 				$tanggal_pulang   	= $this->input->post('tanggal_pulang');
 				$hsldinas			= $this->input->post('hsldinas');
 
