@@ -55,7 +55,7 @@
 			*/		
 			$sql = " SELECT id_doc, id_kata, kata,  ROUND(rand()*".$K.") as new_topik from tb_kata";// limit 0,4";		
 			$data = $this->CI->db->query($sql)->result_object();
-			$idx=0;
+			
 			foreach($data as $rw){
 				//Array jumlah kata pada dokumen ke-i dan topik ke-k
 				$data_c[$rw->id_doc][$rw->new_topik]= isset($data_c[$rw->id_doc][$rw->new_topik]) ? 

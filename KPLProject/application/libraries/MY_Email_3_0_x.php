@@ -167,10 +167,7 @@ class MY_Email extends CI_Email {
      * @param   mixed   $expression     A (conditional) expression that is to be executed.
      * @return  object                  Returns a reference to the created library instance.
      */
-    public function that($expression = NULL) {
-
-        return $this;
-    }
+  
 
 
     // Initialization & Clearing -----------------------------------------------
