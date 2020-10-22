@@ -120,7 +120,7 @@ class LaporanManager extends CI_Controller {
 		$tanggal_pulang				= $data[0]['tanggal_pulang'];
 		$data['tanggal_pulang']		= $this->Tglindo($tanggal_pulang);
 		$data['page']				= "page_laporan_utama";
-		$hsldinas					= $this->input->post('hsldinas');
+		
 
 		
 		$this->load->view('manager/templates/header', $data);
@@ -233,22 +233,11 @@ class LaporanManager extends CI_Controller {
 			} 
 	
 		public function update($id_doc){
-		$data['user'] = $this->db->get_where('tbl_users', ['email' => $this->session->userdata('emailm')])->row_array();
+	
 		ob_start();
 				// edit ediit elemen update
 						
-				$nosurat			= $this->input->post('nosurat');
-				$menimbang			= $this->input->post('menimbang');
-			
-				$kelas				= $this->input->post('kelas');
-				$pegawai			= $this->input->post('pegawai');
 				
-				$keperluandl		= $this->input->post('keperluandl');
-			
-				$pj					= $this->input->post('pj');		
-			
-				
-				$tanggal_pulang   	= $this->input->post('tanggal_pulang');
 				$hsldinas			= $this->input->post('hsldinas');
 
 				$this->db->set("hsldinas", $hsldinas);
