@@ -220,10 +220,6 @@ class LaporanEmployee extends CI_Controller {
 							
 
 			
-					$this->db->set("hsldinas", $hsldinas);
-					$this->db->where("id_doc", $id_doc);
-					$this->db->update("tb_dokumen");
-					
 					   
 						redirect('LaporanEmployee');
 						
