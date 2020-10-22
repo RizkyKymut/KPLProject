@@ -265,27 +265,6 @@ if ( ! function_exists('form_password'))
 
 // ------------------------------------------------------------------------
 
-if ( ! function_exists('form_upload'))
-{
-	/**
-	 * Upload Field
-	 *
-	 * Identical to the input function but adds the "file" type
-	 *
-	 * @param	mixed
-	 * @param	string
-	 * @param	mixed
-	 * @return	string
-	 */
-	function form_upload($data = '', $value = '', $extra = '')
-	{
-		$defaults = array('type' => 'file', 'name' => '');
-		is_array($data) OR $data = array('name' => $data);
-		$data['type'] = 'file';
-
-		return '<input '._parse_form_attributes($data, $defaults)._attributes_to_string($extra)." />\n";
-	}
-}
 
 // ------------------------------------------------------------------------
 

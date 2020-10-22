@@ -111,14 +111,6 @@ class CI_DB_sqlsrv_result extends CI_DB_result {
 	 *
 	 * @return	array
 	 */
-	public function list_fields()
-	{
-		$field_names = array();
-		$field_names[] = $field['Name'];
-
-
-		return $field_names;
-	}
 
 	// --------------------------------------------------------------------
 
