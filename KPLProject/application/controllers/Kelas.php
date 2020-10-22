@@ -60,7 +60,7 @@ class Kelas extends CI_Controller {
 	}
 	
 	public function delete_kelas($id){
-		$data['user'] = $this->db->get_where('tbl_users', ['email' => $this->session->userdata('emaila')])->row_array();
+		
 		$this->db->delete('tb_class', array('id' => $id));
 		header('location:'.base_url().'kelas');
 	}
