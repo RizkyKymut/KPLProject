@@ -171,7 +171,7 @@ class Dokumen extends CI_Controller {
 		$tanggal_pulang				= ($data[0]['tanggal_pulang']);
 		$data['tanggal_pulang']		= $this->Tglindo($tanggal_pulang);
 		$data['page']				= "page_dokumen";
-		$kirim = 
+		
 	
 
 $subject = $data[0]['nosurat'];
@@ -246,7 +246,6 @@ Bersama ini kami menugaskan saudara : '.$vpegawai->Namapeg.'
 // Also, for getting full html you may use the following internal method:
 //$body = $this->email->full_html($subject, $message);
 
-$result = $this->email
  
 ->from('agus.widjanarko@kkp.go.id')
  
@@ -547,7 +546,6 @@ ob_flush();
 			    // Cek data kembar
 	public function checkDuplicateDL($post_email) {
 
-    $this->db->where('pegawaidl', $email_id);
 
     $query = $this->db->get('my_registration_table');
 

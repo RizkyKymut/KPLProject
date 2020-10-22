@@ -39,7 +39,7 @@
         public function allocate($setLength)
         {
             $this->data = array_fill(0, $setLength, 0);
-            return 0;
+    
         }
     
         //----------------------------------------------------------------------

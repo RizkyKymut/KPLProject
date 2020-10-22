@@ -99,11 +99,8 @@ class CI_DB_mysqli_utility extends CI_DB_utility {
 		foreach ( (array) $tables as $table)
 		{
 			// Is the table in the "ignore" list?
-			if (in_array($table, (array) $ignore, TRUE))
-			{
-				continue;
-			}
-
+		
+			
 			// Get the table schema
 			$query = $this->db->query('SHOW CREATE TABLE '.$this->db->escape_identifiers($this->db->database.'.'.$table));
 
@@ -116,10 +113,7 @@ class CI_DB_mysqli_utility extends CI_DB_utility {
 			// Write out the table schema
 			$output .= '#'.$newline.'# TABLE STRUCTURE FOR: '.$table.$newline.'#'.$newline.$newline;
 
-			if ($add_drop === TRUE)
-			{
-				$output .= 'DROP TABLE IF EXISTS '.$this->db->protect_identifiers($table).';'.$newline.$newline;
-			}
+			
 
 			$i = 0;
 			$result = $query->result_array();
@@ -132,11 +126,7 @@ class CI_DB_mysqli_utility extends CI_DB_utility {
 			}
 
 			// If inserts are not needed we're done...
-			if ($add_insert === FALSE)
-			{
-				continue;
-			}
-
+	
 			// Grab all the data from the current table
 			$query = $this->db->query('SELECT * FROM '.$this->db->protect_identifiers($table));
 

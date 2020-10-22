@@ -770,7 +770,7 @@ class CI_Input {
 		{
 			isset($_SERVER['CONTENT_TYPE']) && $this->headers['Content-Type'] = $_SERVER['CONTENT_TYPE'];
 
-			foreach ($_SERVER as $key => $val)
+		
 			{
 				if (sscanf($key, 'HTTP_%s', $header) === 1)
 				{
