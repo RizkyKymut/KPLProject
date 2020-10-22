@@ -71,7 +71,6 @@
 			
 			$max_iterasi = $n_iterasi;
 			for ($iterasi=1;$iterasi<=$max_iterasi;$iterasi++){				
-			  $n=0; $data_topik=""; $sum[$iterasi]=0; 
 			  
 			  if ($max_iterasi>1) {				
 				foreach($data as $r){

@@ -364,7 +364,7 @@ ob_flush();
 			'keperluandl'		=> $keperluandl,
 			'tanggalttd'		=> $tanggalttd,
 			'pjttd'				=> $pjttd,
-			'pj'                => $pj,
+		
 			'class_id'			=> $kelas,
 			// 'id_trader'         => $trader[0],
           	'created_date' 		=> date('Y-m-d H:i:00'),

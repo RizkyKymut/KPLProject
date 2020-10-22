@@ -624,10 +624,7 @@ class CI_DB_result {
 	 * @param	int	$n
 	 * @return	bool
 	 */
-	public function data_seek($n = 0)
-	{
-		return FALSE;
-	}
+
 
 	// --------------------------------------------------------------------
 

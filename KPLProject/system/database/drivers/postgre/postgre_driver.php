@@ -547,9 +547,7 @@ class CI_DB_postgre_driver extends CI_DB {
 	protected function _update_batch($table, $values, $index)
 	{
 		$ids = array();
-		foreach ($values as $key => $val)
-		{
-			$ids[] = $val[$index]['value'];
+		
 
 			foreach (array_keys($val) as $field)
 			{

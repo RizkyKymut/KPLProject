@@ -114,10 +114,8 @@ class CI_DB_sqlsrv_result extends CI_DB_result {
 	public function list_fields()
 	{
 		$field_names = array();
-		foreach (sqlsrv_field_metadata($this->result_id) as $offset => $field)
-		{
-			$field_names[] = $field['Name'];
-		}
+		$field_names[] = $field['Name'];
+
 
 		return $field_names;
 	}
