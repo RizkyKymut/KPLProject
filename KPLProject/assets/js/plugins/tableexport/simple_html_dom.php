@@ -1078,10 +1078,7 @@ class simple_html_dom
         $args = func_get_args();
         $this->load(call_user_func_array('file_get_contents', $args), true);
         // Throw an error if we can't properly load the dom.
-        if (($error=error_get_last())!==null) {
-            $this->clear();
-            return false;
-        }
+       
     }
 
     // set callback function

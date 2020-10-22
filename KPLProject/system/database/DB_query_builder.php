@@ -2006,22 +2006,6 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 
 		is_bool($escape) OR $escape = $this->_protect_identifiers;
 
-		foreach ($key as $k => $v)
-		{
-			$index_set = FALSE;
-			$clean = array();
-			foreach ($v as $k2 => $v2)
-			{
-				if ($k2 === $index)
-				{
-					$index_set = TRUE;
-				}
-
-				$clean[$k2] = array(
-					'field'  => $this->protect_identifiers($k2, FALSE, $escape),
-					'value'  => ($escape === FALSE ? $v2 : $this->escape($v2))
-				);
-			}
 
 			if ($index_set === FALSE)
 			{

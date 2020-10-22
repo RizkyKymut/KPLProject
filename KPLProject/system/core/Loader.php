@@ -971,12 +971,7 @@ class CI_Loader {
 		log_message('info', 'File loaded: '.$_ci_path);
 
 		// Return the file data if requested
-		if ($_ci_return === TRUE)
-		{
-			$buffer = ob_get_contents();
-			@ob_end_clean();
-			return $buffer;
-		}
+		
 
 		/*
 		 * Flush the buffer... or buff the flusher?
