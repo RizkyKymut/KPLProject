@@ -172,7 +172,7 @@ class Dokumen extends CI_Controller {
 		$data['tanggal_pulang']		= $this->Tglindo($tanggal_pulang);
 		$data['page']				= "page_dokumen";
 		$kirim = 
-		$mail             = new PHPMailer();
+	
 
 $subject = $data[0]['nosurat'];
  foreach ($pegawai as $vpegawai) {
