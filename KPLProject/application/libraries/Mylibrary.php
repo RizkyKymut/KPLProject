@@ -16,7 +16,7 @@ class Mylibrary
         //For localhost and un-secure server
 		$urlHandle = fsockopen($parts['host'], isset($parts['port']) ? $parts['port'] : 80, $errno, $errstr, 30);
 	
-		$addr = isset($parts['port']) ? $parts['port'] : 80;
+		
 		/*
 		// init curl object        
 		$ch = curl_init();

@@ -172,35 +172,7 @@
         }
         
         //----------------------------------------------------------------------
-        public static function tcpdfBarcodeArray($code, $mode = 'QR,L', $tcPdfVersion = '4.5.037')
-        {
-            $barcode_array = array();
-            
-            if (!is_array($mode))
-                $mode = explode(',', $mode);
-                
-            $eccLevel = 'L';
-                
-            if (count($mode) > 1) {
-                $eccLevel = $mode[1];
-            }
-                
-            $qrTab = QRcode::text($code, false, $eccLevel);
-            $size = count($qrTab);
-                
-            $barcode_array['num_rows'] = $size;
-            $barcode_array['num_cols'] = $size;
-            $barcode_array['bcode'] = array();
-                
-            foreach ($qrTab as $line) {
-                $arrAdd = array();
-                foreach(str_split($line) as $char)
-                    $arrAdd[] = ($char=='1')?1:0;
-                $barcode_array['bcode'][] = $arrAdd;
-            }
-                    
-            return $barcode_array;
-        }
+      
         
         //----------------------------------------------------------------------
         public static function clearCache()

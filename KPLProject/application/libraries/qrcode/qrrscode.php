@@ -142,7 +142,7 @@
         //----------------------------------------------------------------------
         public function encode_rs_char($data, &$parity)
         {
-            $MM       =& $this->mm;
+            
             $NN       =& $this->nn;
             $ALPHA_TO =& $this->alpha_to;
             $INDEX_OF =& $this->index_of;

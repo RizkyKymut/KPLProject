@@ -348,24 +348,7 @@
         
         //----------------------------------------------------------------------
         
-        public function insertStructuredAppendHeader($size, $index, $parity)
-        {
-            if( $size > MAX_STRUCTURED_SYMBOLS ) {
-                throw new Exception('insertStructuredAppendHeader wrong size');
-            }
-            
-            if( $index <= 0 || $index > MAX_STRUCTURED_SYMBOLS ) {
-                throw new Exception('insertStructuredAppendHeader wrong index');
-            }
-            
-            try {
-                $entry = new QRinputItem(QR_MODE_STRUCTURE, 3, buf);
-                array_unshift($this->items, $entry);
-                return 0;
-            } catch (Exception $e) {
-                return -1;
-            }
-        }
+      
 
         //----------------------------------------------------------------------
         public function calcParity()
