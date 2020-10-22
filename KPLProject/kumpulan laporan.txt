@@ -1,0 +1,1714 @@
+//Laporan.php
+<?php
+
+error_reporting(0);
+
+$timezone = "Asia/Jakarta";
+if(function_exists(date_default_timezone_set)) date_default_timezone_set($timezone);
+
+$this->db->select('*');
+$this->db->from('tb_detail_dokumen');
+$this->db->join('tb_pegawai', 'tb_pegawai.NIP = tb_detail_dokumen.NIP','left');
+$this->db->where('id_doc', $id_doc);
+$this->db->order_by('tb_pegawai.no_duk', "Asc");
+$query = $this->db->get()->result_array();
+
+$filename = $id_doc.'.png';
+$substr_nosurat = substr($nosurat,4,26);
+$substr_awal    = str_repeat('&nbsp;', 8);
+
+
+ob_start();
+
+echo '  
+    <html>
+    <head><title>Laporan Perjalanan Dinas</title>
+        <style type="text/css">
+    .kiri{
+        text-align:left;
+        font-size:15px;
+        font-family:"Arial", Times, serif;
+        color: black;
+    }
+
+    .kanan{
+      text-align: right;
+      font-size: 15px;
+      font-family:"Arial", Times, serif;
+      color: black;
+  }
+
+    body{
+        font-size:14px;
+        font-family:"Times New Roman", Times, serif;    
+    }
+
+    h2{
+        text-align: center;
+        font-size: 15px;
+        font-family:"Arial";
+        color: black;
+    }
+    
+    table{
+        border-style:none;
+        border-width:thin;
+        border-spacing:inherit;
+    }
+     table, th, td {
+            border: 1px solid black;
+            height: justify;
+         }
+        
+    </style>
+    
+    </head>
+    <body>
+
+    <h2> Laporan Perjalanan Dinas </h2>
+ 
+     <table border=1  width="100%" cellspacing="5" cellpadding="5" 
+     style="font-family:Arial;font-size:14px;" text-align="justify">
+ 
+
+       <tr>
+         <td width="30px" align="center">I</td>
+         <td width="300px"> Nama  </td>
+         <td width="10px"> :  </td>
+         <td colspan="2">R. Gatot Perdana, A.Pi, M.MPi</td>
+       </tr>
+       <tr>
+         <td align="center"></td>
+         <td width="300px"> NIP </td>
+         <td width="20px"> :  </td>
+         <td colspan="2"> 197305311998031002 </td>
+         </td>
+       </tr>
+       <tr>
+        <td align="center"></td>
+        <td width="300px">  Pangkat/Gol </td>
+        <td width="20px"> :  </td>
+        <td colspan="2"> Pembina Tingkat I/IVb </td>
+        </td>
+       </tr>
+       <tr>
+            <td align="center"></td>
+            <td width="300px">  Jabatan  </td>
+            <td width="20px"> :  </td>
+            <td colspan="2"> Kepala Balai KIPM Semarang </td>
+        </td>
+        </tr>
+
+       <tr>
+        <td width="30px" align="center">II</td>
+        <td width="300px"> Dasar Kegiatan  </td>
+        <td width="20px"> :  </td>
+        <td colspan="2">Surat Tugas No. 1339/17.0/KP.440/XI/2019</td>
+       </tr>
+
+       <tr>
+       <td width="30px" align="center">III</td>
+       <td width="300px"> Tanggal 
+       <br> Pelaksanaan </br> </td>
+       <td width="20px"> :  </td>
+       <td colspan="2">Selasa, 19 November 2019</td>
+      </tr>
+      <tr>
+       <td width="30px" align="center"></td>
+       <td width="300px"> Tempat/Tujuan </td>
+       <td width="20px"> :  </td>
+       <td colspan="2">Binakarna Auditorium, Hotel Bidakara Jakarta</td>
+      </tr>
+  
+      <tr>
+       <td width="30px" align="center">IV</td>
+       <td width="300px"> Tujuan Kegiatan </td>
+       <td width="20px"> :  </td>
+       <td colspan="2">Sosialisasi dan Pendampingan Persiapan Evaluasi Pelayanan Publik Tahun 2019 pada Kementrian/Lembaga</td>
+      </tr>
+
+      <tr>
+      <td width="30px" align="center">V</td>
+      <td width="300px"> Hasil Perjalanan Dinas </td>
+      <td width="20px"> :  </td>
+      <td colspan="2"> </td>
+     </tr>
+
+</table>
+
+<br>
+    <br>
+     <tr>
+        <td valign="center" text-align="justify"> A. </td>
+        <tr><td align=center style="font-size:14px;">Latar Belakang</td></tr> 
+        <td valign="top" text-align="justify">'.$ltrblkng.'</td>
+     </tr>
+    </br>
+
+    <br>
+    <br> <br> <br> 
+     <tr>
+        <td valign="center" text-align="justify"> B. </td>
+        <td valign="center" text-align="justify"> Maksud, Tujuan dan Sasaran </td>
+        <td valign="top" text-align="justify">'.$mksdtujuansasaran.'</td>
+     </tr>
+    </br> 
+
+    <br>
+    <br> <br> <br> 
+     <tr>
+        <td valign="center" text-align="justify"> C. </td>
+        <td valign="center" text-align="justify"> Hasil Perjalanan Dinas </td>
+        <td valign="top" text-align="justify">'.$hsldinas.'</td>
+     </tr>
+    </br>
+</br>
+            
+        <br> <br>
+        <br>  <br> <br>
+        <br>  <br> <br>
+        <br>  <br> <br>
+        <br> <br> <br>
+        <br> <br> <br>
+        
+        <td >
+                <tr><td width="60px">Kepala,</td></tr>
+
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+
+                <tr><td width="60px" text-align="right"> Pelaksana,</td></tr>
+                
+            
+            <br>
+
+        <tr>
+            <left>
+            <br><br><br><br>
+
+            '.$pjttd.'
+    
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> 
+            
+            '.$pjttd.'<br>
+            <br>
+            </right>
+            </left>
+    
+        </tr>
+
+            <table width="60%" cellspacing="0" >
+        <tr><td rowspan="6" width="15%" align=center><img src='.$filename.'  width="60px" height="60px" ></img></td>
+        
+
+        
+        </td>
+        </tr>
+
+   
+    </body></html>';
+
+$html   = ob_get_contents();
+ob_end_clean();
+$mpdf = new mPDF('utf-8','A4');
+$mpdf->setFooter('');
+$mpdf->WriteHTML(utf8_encode($html));
+$mpdf->Output($nama_dokumen.".pdf",'I');
+exit;
+  
+?>
+
+//page_laporan_view
+<!-- START PAGE CONTAINER -->
+        <div class="content-wrapper">
+                
+        <!-- PAGE CONTENT -->
+            <div class="page-content">
+                
+                <!-- START BREADCRUMB -->
+                <ul class="breadcrumb">
+                    <li><a href="#">Beranda</a></li>
+                    <li><a href="#">Laporan</a></li>
+                    <li class="active">Edit Laporan</li>
+                </ul>
+                <!-- END BREADCRUMB -->
+                                
+                <!-- PAGE CONTENT WRAPPER -->
+                <div class="page-content-wrap">
+				<div class="row">
+					<div class="col-md-12">
+				
+					<div class="panel panel-default">
+					<div class="panel-heading">
+                        <h3 class="panel-title">Detail Surat Tugas</h3>                        
+                    </div>
+					<div class="panel-body" >
+                    
+						<form method="post" class="form-horizontal" action="<?php echo base_url('laporan/update/'.$id_doc) ?>" enctype="multipart/form-data">
+                            <div class="panel panel-default">                                
+                          
+                                <div class="panel-body">                                                                        
+                                    
+                                    <div class="form-group">
+                                         <div class="form-group">
+                                        <label class="col-md-3 col-xs-12 control-label">No Surat</label>
+                                      
+                                         <div class="col-md-6 col-xs-12">
+                                         <input type="text" class="form-control" name='nosurat' placeholder=<?php echo $nosurat;?> disabled>                 
+                                
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-xs-12 control-label">Menimbang</label>
+                                         <div class="col-md-6 col-xs-12">
+                                         <input type="text" class="form-control"  name='tujuandl' placeholder=<?php echo $menimbang;?> disabled>              
+                                      
+                                        </div>
+                                       
+                                    </div>   
+                                        <div class="form-group">
+                                        <label class="col-md-3 col-xs-12 control-label">Dasar</label>
+                                        <div class="col-md-6 col-xs-12">
+                                         <input type="text" class="form-control"  name='tujuandl' placeholder=<?php echo $dasar;?> disabled>              
+                                      
+                                        </div>                                            
+                                        </div>
+                                    </div> 
+
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-xs-12 control-label">Jenis Kegiatan</label>
+                                        <div class="col-md-6 col-xs-12">    
+                                            <select class="form-control select" name="kelas" id="kelas" style="width = 50%">
+                                                <option>Pilih Kelas</option>
+                                                <?php foreach ($kelas as $row) { ?>                                         
+                                                <option value="<?php echo $row->id;?>" 
+                                                <?php if ($class_id==$row->id) echo "selected" ?> >
+                                                
+                                                <?php echo $row->name;?></option>
+                                                <?php } ?>
+                                            </select>
+                                            
+                                        </div>
+                                    </div>
+                                  
+                                     <div class="form-group">
+                                        <label class="col-md-3 col-xs-3 control-label">a</label>
+                                        
+                                        <div class="col-md-6 col-xs-12">
+                                        
+                                           <?php 
+                                             echo $tanggal_berangkat;
+                                             echo "s/d";
+                                             echo $tanggal_pulang;
+                                            ?>   
+                                       
+                                           
+                                        </div>
+                                    </div>
+                            
+                                     <div class="form-group">
+                                        <label class="col-md-3 col-xs-3 control-label">Pegawai</label>
+                                         <div class="col-md-6 col-xs-12">
+                         <table class="table table-hover">
+
+                    <thead>
+                        <tr>
+                            <th width="5%">NIP</th>
+                            <th width="5%">Nama</th>
+                            <th width="5%">Jabatan</th>
+                            <th width="5%">Golongan</th>
+                           
+                                                                     
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                             foreach ($pegawaidl as $vpegawai) {
+
+                        ?>
+                        <tr>
+                                <td><?php echo $vpegawai->NIP?></td>
+                                <td><?php echo $vpegawai->Namapeg?></td>
+                                <td><?php echo $vpegawai->Jabatan?></td>
+                                <td><?php echo $vpegawai->Golongan?></td>
+                               
+                               
+                         </tr>
+                           
+                         <?php
+                        }
+                         ?>                       
+                    </tbody>
+                    </table>
+                                         </div>                      
+                                             
+                                             
+                                           
+                                        
+                                    </div>
+                          
+
+                
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-xs-12 control-label">Tujuan</label>
+                                        <div class="col-md-6 col-xs-12">
+                                         <input type="text" class="form-control" name='tujuandl' placeholder=<?php echo $tujuandl;?> disabled>                 
+                                      
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-xs-12 control-label">File</label>
+                                        <div class="col-md-6 col-xs-12">
+                                                                                                                            
+                                             <input type="file" name="attachments[]" id="attachments" class="fileinput btn-primary" title="Browse file" data-filename-placement="inside" multiple="true"/>
+                                            <span class="help-block">Input type file</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-xs-12 control-label">Keperluan</label>
+                                        <div class="col-md-6 col-xs-12"> <input type="text" class="form-control" name='keperluandl' placeholder=<?php echo $keperluandl;?>> 
+                                        </div>
+                                    </div>     
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-xs-12 control-label">Tanggal Surat</label>
+                                        <div class="col-md-6 col-xs-12"> 
+                                        <?php echo $tanggalttd;?> 
+                                       
+                                                                                   
+                                        </div>
+                                    </div>                                
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-xs-12 control-label">Pejabat TTD</label>
+                                        <div class="col-md-6 col-xs-12">   <input type="text" class="form-control" name='pjttd' value= <?php echo $pjttd;?>
+                                             disabled>                          
+                                        </div>
+                                    </div> 
+
+                                </div>
+
+                                <div class="form-group">
+                                        <label class="col-md-3 col-xs-12 control-label">Latar Belakang</label>
+                                        <div class="col-md-6 col-xs-12">         <textarea class="form-control" name="LatarBelakang" rows="5" placeholder=" "><?php echo htmlspecialchars($ltrblkng); ?></textarea>                                                   
+                                        </div>
+                                    </div> 
+
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-xs-12 control-label">Maksud,Tujuan,Sasaran</label>
+                                        <div class="col-md-6 col-xs-12">         <textarea class="form-control" name="MTS" rows="5" placeholder=" "><?php echo htmlspecialchars($mksdtujuansasaran); ?></textarea>                                             
+                                        </div>
+                                    </div> 
+
+                                <div class="form-group">
+                                        <label class="col-md-3 col-xs-12 control-label">Hasil Perjalanan Dinas </label>
+                                        <div class="col-md-6 col-xs-12">
+                                        <textarea class="form-control" name='hsldinas' rows="10" placeholder="Hasil perjalanan dinas"><?php echo htmlspecialchars($hsldinas); ?></textarea>    
+                                        
+                                                                                   
+                                        </div>
+                                    </div>
+                                
+                                <div class="panel-footer">
+                                    <button type="reset" class="btn btn-default" onclick="location.href='<?php echo base_url();?>Laporan';">
+									<i class="glyphicon glyphicon-remove"></i>
+									Close</button>
+                                    <button class="btn btn-primary pull-right" onclick="location.href='<?php echo base_url();?>Laporan';">
+									<i class="fa fa-save"></i> Simpan</button>
+                                  
+                                </div>
+                            </div>
+                            </form>
+                            
+                        
+                   
+					</div>                
+				
+                <div class="panel-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th width="5%">Permohonan</th>
+                            <th width="5%">Koreksi</th>
+                            <th width="5%">Paraf Kasubag</th>
+                            <th width="5%">TTD Kepala</th>
+                            <th width="5%">Status</th>
+                                                                     
+                        </tr>
+                    </thead>
+                    <tbody>
+                   
+                        <tr>
+                                <td><?php echo $created_date?></td>
+                                <td><?php echo $update_date?></td>
+                                <td><?php echo $created_date?></td>
+                                <td><?php echo $update_date?></td>
+                                <td><?php echo $created_date?></td>
+                               
+                         </tr>
+                           <tr>
+                                <td>
+                        <?php   
+                          if (empty($created_date)) {
+                            echo "<span class=\"label label-danger\">Verifikasi</span>";                            
+                            
+                          }else {
+                            echo "<span class=\"badge bg-red\">Selesai</span>";
+                          }
+                        ?>                      
+                        </td>
+                                     <td>
+                        <?php   
+                          if (empty($update_date)) {
+                            echo "<span class=\"label label-danger\">Verifikasi</span>";                            
+                            
+                          }else {
+                            echo "<span class=\"badge bg-red\">Selesai</span>";
+                          }
+                        ?>                      
+                        </td>
+                                     <td>
+                        <?php   
+                          if (empty($created_date)) {
+                            echo "<span class=\"label label-danger\">Verifikasi</span>";                            
+                            
+                          }else {
+                            echo "<span class=\"badge bg-red\">Selesai</span>";
+                          }
+                        ?>                      
+                        </td>
+                                     <td>
+                        <?php   
+                          if (empty($created_date)) {
+                            echo "<span class=\"label label-danger\">Verifikasi</span>";                            
+                            
+                          }else {
+                            echo "<span class=\"badge bg-red\">Selesai</span>";
+                          }
+                        ?>                      
+                        </td>
+                              </td>
+                                     <td>
+                        <?php   
+                          if (empty($created_date)) {
+                            echo "<span class=\"label label-danger\">Verifikasi</span>";                            
+                            
+                          }else {
+                            echo "<span class=\"badge bg-red\">Selesai</span>";
+                          }
+                        ?>                      
+                        </td>
+
+                    </tr>
+                           <tr>
+                                <td>Permohonan Online</td>
+                                <td>Operator</td>
+                                <td>Berkas di Kasubag TU</td>
+                                <td>Berkas di Kepala balai</td>
+                                <td>Berkas di ambil di Persuratan</td>
+                               
+                         </tr>
+                       
+                    
+                    </tbody>
+                    </table>
+                </div>
+                </div>                        
+
+                  </div>                        
+                 </div>                    
+                </div>
+                <!-- END PAGE CONTENT WRAPPER -->                                    
+            </div>            
+            <!-- END PAGE CONTENT -->
+        </div>
+        <!-- END PAGE CONTAINER -->
+
+        <!-- MESSAGE BOX-->
+        <div class="message-box animated fadeIn" data-sound="alert" id="mb-signout">
+            <div class="mb-container">
+                <div class="mb-middle">
+                    <div class="mb-title"><span class="fa fa-sign-out"></span> Log <strong>Out</strong> ?</div>
+                    <div class="mb-content">
+                        <p>Are you sure you want to log out?</p>                    
+                        <p>Press No if youwant to continue work. Press Yes to logout current user.</p>
+                    </div>
+                    <div class="mb-footer">
+                        <div class="pull-right">
+                            <a href="pages-login.html" class="btn btn-success btn-lg">Yes</a>
+                            <button class="btn btn-default btn-lg mb-control-close">No</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		
+		<!-- success -->
+        <div class="message-box message-box-success animated fadeIn" id="message-box-success">
+            <div class="mb-container">
+                <div class="mb-middle">
+                    <div class="mb-title"><span class="fa fa-check"></span> Success</div>
+                    <div class="mb-content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at tellus sed mauris mollis pellentesque nec a ligula. Quisque ultricies eleifend lacinia. Nunc luctus quam pretium massa semper tincidunt. Praesent vel mollis eros. Fusce erat arcu, feugiat ac dignissim ac, aliquam sed urna. Maecenas scelerisque molestie justo, ut tempor nunc.</p>
+                    </div>
+                    <div class="mb-footer">
+                        <button class="btn btn-default btn-lg pull-right mb-control-close">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end success -->
+        
+        <!-- END MESSAGE BOX-->
+
+//page_laporan
+<!-- START PAGE CONTAINER -->
+        <div class="content-wrapper">
+            
+            <!-- PAGE CONTENT -->
+            <div class="page-content">
+            
+                <!-- START BREADCRUMB -->
+                <ul class="breadcrumb">
+                    <li><a href="<?php echo base_url();?>admin">Beranda</a></li>
+                    <li class="active">Dokumen</li>
+                </ul>
+                <!-- END BREADCRUMB -->               
+                
+                
+                <!-- PAGE CONTENT WRAPPER -->
+                <div class="page-content-wrap">
+				<div class="row">
+
+					
+				    <div class="panel panel-default">
+                        <div class="panel-heading">
+                          <div class="pull-left">
+                            <button class="btn btn-block btn-info " >
+                            <i class="glyphicon glyphicon-plus"></i> Proses Verifikasi: 
+                            <?php $data['Verifikasi']->verifikasi; 
+                            echo $verifikasi;?>
+                            </button>
+                        </div>
+                        <span></span>
+                         <div class="pull-left">
+                            <button class="btn btn-block btn-warning">
+                              <i class="glyphicon glyphicon-plus"></i> Selesai Verifikasi : 
+                            <?php $data['selesai_ver']->selesai_ver; 
+                            echo $selesai_ver;?>
+
+                            </button>
+                        </div>
+                        </div>
+
+                    </div>
+
+					<div class="panel panel-default">
+					<div class="panel-heading">
+
+                    <form method="post" class="form-horizontal" action="<?php echo base_url(); ?>laporan/filterdate" enctype="multipart/form-data">
+
+                        <div class="pull-left">
+                            Tanggal Berangkat:
+                            <input type="date" class="form-control pull-left" name='tanggal_berangkat' id="datemask">
+                        </div>
+
+                        <div class="pull-left">
+                            Tanggal Pulang:
+                            <input type="date" class="form-control pull-right" name='tanggal_pulang' id="datemask2">
+                        </div>
+                        <div class="pull-left">
+                            Filter
+                            <br>
+                            <button class="btn btn-primary">
+                                    <i class="fa fa-save"></i>
+                            </button>
+                        </div>
+                      </form>
+                      <form method="post" class="form-horizontal" action="<?php echo base_url(); ?>laporan/filterpegawai" enctype="multipart/form-data">
+
+                        <div class="pull-left">
+                            Pegawai:
+                             <select class="form-control select2" multiple="multiple" name='NIP' data-placeholder="Pilih Pegawai DL"
+                                            style="width: 100%;">
+                                               <?php foreach ($pegawai as $row) { ?>
+                                                <option value="<?php echo $row->NIP;?>"><?php echo $row->Namapeg;?></option>
+                                                <?php } ?>
+                                            </select>
+                        </div>
+
+                       
+                        <div class="pull-left">
+                            Filter
+                            <br>
+                            <button class="btn btn-primary">
+                                    <i class="fa fa-save"></i>
+                            </button>
+                        </div>
+                      </form>
+                      
+
+                      
+                    </div>
+                               
+				
+                <div class="panel-body">
+                <table class="table datatable">
+                    <thead>
+						<tr>
+							<th width="5%">Id</th>
+							<th width="5%">NIP</th>
+                            <th width="10%">Nama</th>
+                            <th width="10%">Tanggal Berangkat</th>
+                             <th width="5%">Tanggal Pulang</th>
+                            <th align=center width="15%">Action</th>       
+
+                        </tr>
+                    </thead>
+					<tbody>
+                      	 <?php                       
+                        //$no = 1;
+                        //$no = $this->uri->segment('3')+1;
+                      
+                        foreach ($data as $row) {
+                 
+                        ?>
+                    	<tr>						
+							<td><?php echo $row->id_doc?></td>
+							<td align="center"><?php echo $row->NIP;?></td>
+                            <td align="center"><?php echo $row->Namapeg;?></td>
+                            <td align="center"><?php echo $row->tanggal_berangkat;?></td>
+                            <td align="center"><?php echo $row->tanggal_pulang;?></td>
+                           
+							</td>
+					
+						<td align="center">
+                            <div class="btn-group" role="group">                            
+            
+                                <button>
+                                    <a href="<?php echo base_url(); ?>Laporan/view_dokumen/<?php echo $row->id_doc;?>">
+                                    <span class="fa fa-pencil">Lihat Detail</span></a>
+                                </button>
+                                
+                                                           
+                            </div>
+                        </td>                       		
+                    	</tr>
+                    	<?php }
+						  //endforeach 
+						?>
+                    </tbody>
+					</table>
+                </div>
+                </div>                        
+
+                  </div>                        
+                 </div>                    
+                </div>
+                <!-- END PAGE CONTENT WRAPPER -->                                    
+            </div>            
+            <!-- END PAGE CONTENT -->
+        </div>
+        <!-- END PAGE CONTAINER -->
+
+		
+			<!-- MODALS -->        		
+        <div class="modal" id="modal_large" tabindex="-1" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true">					
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+					
+						<div class="panel panel-default">
+                            <div class="panel-heading ui-draggable-handle">
+                                <h3 class="panel-title">
+								<span class="glyphicon glyphicon-list-alt" color="red"></span> View Deskripsi Surat Tugas</h3>
+                                <ul class="panel-controls">
+                                    <li><a href="#" class="panel-fullscreen"><span class="fa fa-expand"></span></a></li>
+                                    <li><a href="#" class="panel-close" data-dismiss="modal">
+										<span class="fa fa-times"></span></a></li>
+                                    </ul>                                
+                            </div>
+                            <div class="panel-body">
+							
+							<div class="row">							
+							<div class="col-md-12">
+                            <!-- START ACCORDION -->        
+                            <div class="panel-group accordion">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a href="#accOneColOne">                                                												
+												<span class="glyphicon glyphicon-hand-right"></span>
+												&nbsp; Petugas
+                                            </a>
+                                        </h4>
+                                    </div>                                
+                                    <div class="panel-body panel-body-open" id="accOneColOne">									
+										<div id="myDataPre"></div>
+                                    </div>                                
+                                </div>
+                                <div class="panel panel-danger">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a href="#accOneColTwo">
+                                             <span class="glyphicon glyphicon-hand-right"></span>
+											 &nbsp; Deskripsi Singkat
+                                            </a>
+                                        </h4>
+                                    </div>                                
+                                    <div class="panel-body" id="accOneColTwo">
+										<div id="myDataDok"></div>                                        
+                                    </div>                                
+                                </div>
+                                
+                            </div>
+                            <!-- END ACCORDION -->                        
+                        </div>
+						</div>
+							 
+							 
+                                
+                            </div>      
+                            
+						</div>
+					
+                </div>
+            </div>
+        </div>    
+		<!-- END MODALS-->
+		
+        <!-- MESSAGE BOX-->
+        <div class="message-box animated fadeIn" data-sound="alert" id="mb-signout">
+            <div class="mb-container">
+                <div class="mb-middle">
+                    <div class="mb-title"><span class="fa fa-sign-out"></span> Log <strong>Out</strong> ?</div>
+                    <div class="mb-content">
+                        <p>Are you sure you want to log out?</p>                    
+                        <p>Press No if youwant to continue work. Press Yes to logout current user.</p>
+                    </div>
+                    <div class="mb-footer">
+                        <div class="pull-right">
+                            <a href="pages-login.html" class="btn btn-success btn-lg">Yes</a>
+                            <button class="btn btn-default btn-lg mb-control-close">No</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		
+		<!-- success -->
+        <div class="message-box message-box-success animated fadeIn" id="message-box-success">
+            <div class="mb-container">
+                <div class="mb-middle">
+                    <div class="mb-title"><span class="fa fa-check"></span> Success</div>
+                    <div class="mb-content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at tellus sed mauris mollis pellentesque nec a ligula. Quisque ultricies eleifend lacinia. Nunc luctus quam pretium massa semper tincidunt. Praesent vel mollis eros. Fusce erat arcu, feugiat ac dignissim ac, aliquam sed urna. Maecenas scelerisque molestie justo, ut tempor nunc.</p>
+                    </div>
+                    <div class="mb-footer">
+                        <button class="btn btn-default btn-lg pull-right mb-control-close">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end success -->
+        
+        <!-- END MESSAGE BOX-->
+
+        <!-- START PRELOADS -->
+        <audio id="audio-alert" src="<?php echo base_url();?>audio/alert.mp3" preload="auto"></audio>
+        <audio id="audio-fail" src="<?php echo base_url();?>audio/fail.mp3" preload="auto"></audio>
+        <!-- END PRELOADS --> 
+
+//page_laporancetak
+<?php
+
+error_reporting(0);
+
+$timezone = "Asia/Jakarta";
+if(function_exists(date_default_timezone_set)) date_default_timezone_set($timezone);
+
+$this->db->select('*');
+$this->db->from('tb_detail_dokumen');
+$this->db->join('tb_pegawai', 'tb_pegawai.NIP = tb_detail_dokumen.NIP','left');
+$this->db->where('id_doc', $id_doc);
+$this->db->order_by('tb_pegawai.no_duk', "Asc");
+$query = $this->db->get()->result_array();
+
+$this->db->select('*');
+$this->db->from('tb_dokumen');
+$this->db->join('tb_r_trader', 'tb_r_trader.id_trader = tb_dokumen.id_trader','left');
+$this->db->where('id_doc', $id_doc);
+$trader = $this->db->get()->result_array();
+
+
+$filename = $id_doc.'.png';
+$substr_nosurat = substr($nosurat,4,26);
+$substr_awal    = str_repeat('&nbsp;', 8);
+
+
+ob_start();
+
+echo '  
+    <html>
+    <head><title></title>
+        <style type="text/css">
+    p{
+        text-align:left;
+        font-size:7px;
+        font-family:"Times New Roman", Times, serif;
+        color:#000066;
+    }
+    body{
+        font-size:14px;
+        font-family:"Times New Roman", Times, serif;    
+    }
+    
+    table{
+        border-style:none;
+        border-width:thin;
+        border-spacing:inherit;
+    }
+        
+    </style>
+    
+    </head>
+    <body>
+    <table width="100%" cellspacing="0">
+    <tr><td align=center style="font-size:14px;">
+    </td>
+    </tr>
+    <tr><td align=center style="font-size:14px;">  
+    </td></tr>
+    
+    <tr><td align=center style="font-size:12px;"></td></tr>
+    
+    <tr><td align=center style="font-size:10px;"></td></tr>
+    <tr><td align=center style="font-size:10px;"></td></tr>
+    <tr><td align=center style="font-size:10px;"></td></tr>
+    <tr><td align=center style="font-size:10px;"></td></tr>
+    <tr><td align=center style="font-size:10px;"></td></tr>
+    <tr><td align=center style="font-size:10px;"></td></tr>
+    <tr><td align=center style="font-size:10px;"></td></tr>
+    <tr><td align=center style="font-size:10px;"></td></tr>
+    </table>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+  <table width=100%>
+<tr>
+<tr>
+<tr>
+
+    <td align="center"><h2  align=center>LAPORAN PERJALANAN DINAS</h2></td>
+</tr> 
+ 
+</table>
+
+    <br>
+    
+   
+    <br>
+ 
+     <table border=0  width="100%" cellspacing="0" cellpadding="2" 
+     style="font-family:Times New Roman;font-size:13px;" text-align="justify">
+     <tr><td valign="top">Nama </td>
+     <td valign="top" >:</td>
+     
+     '. $Namapeg .' .  </td>
+   
+     <td valign="top"></td>
+
+
+     </tr>
+
+    </table>
+
+    <table border=0  width="100%" cellspacing="0" cellpadding="2" 
+     style="font-family:Times New Roman;font-size:13px;" text-align="justify">
+     <tr><td valign="top">NIP </td>
+     <td valign="top" >:</td>
+     
+     '. $NIP .'   </td>
+   
+     <td valign="top"></td>
+
+
+     </tr>
+
+    </table>
+
+    <table border=0  width="100%" cellspacing="0" cellpadding="2" 
+     style="font-family:Times New Roman;font-size:13px;" text-align="justify">
+     <tr><td valign="top">Nama </td>
+     <td valign="top" >:</td>
+     
+     '.$Namapeg.' .  </td>
+   
+     <td valign="top"></td>
+
+
+     </tr>
+
+    </table>
+
+      <br>
+         <table border=0  width="100%" cellspacing="0" cellpadding="2" 
+              style="font-family:Times New Roman;font-size:13px;"  text-align="justify">
+     <tr><td valign="top">Dasar</td>
+     <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>><td valign="top">:</td>
+     
+     <td valign="top" text-align="justify" >a. Permen KP Nomor 05 tahun 2005 tentang Tindakan Karantina Ikan untuk pengeluaran MP-HPIK.</td>
+     </tr>
+          <tr><td valign="top"></td>
+     <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>><td valign="top"></td>
+     
+     <td valign="top" text-align="justify" >b. Permen KP Nomor 20 tahun 2007 tentang Tindakan Karantina Ikan untuk pemasukan MP-HPIK dari luar negeri & dari suatu area ke area lain didalam wilayah Negara Republik Indonesia.</td>
+    
+     </tr>
+        <tr><td valign="top"></td>
+     <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>><td valign="top"></td>
+     
+     <td valign="top" text-align="justify" >c. Biaya Perjalanan Dinas Kegiatan ini dibebankan pada DIPA Balai KIPM Semarang, Nomor: DIPA-032.13.2.649661/2018,Tanggal 05 Desember 2017.</td>
+    
+     </tr>
+    </table>
+
+    
+      <br>
+       <table width="100%" border="0">
+    <tr><td align=center style="font-size:14px;">Memberi Tugas</td></tr> 
+    </table>
+
+           <table width="100%" border="0">
+    <tr><td width="80px" align=left style="font-size:13px;">Kepada     :</td></tr> 
+    </table>
+    <br>
+    
+
+
+
+
+<table border="1" cellpadding="3" cellspacing="3" repeat_header=1 width=100% style="margin-top:10px; margin-left:70px;">
+<thead>
+<tr>
+<th style="text-align:center; font-weight:bold;">No</td>
+<th style="text-align:center; font-weight:bold;">Nama/NIP</td>
+<th style="text-align:center; font-weight:bold;">Pangkat/Golongan</td>
+<th style="text-align:center; font-weight:bold;">Jabatan</td>
+
+</tr>
+</thead>';
+
+$no = 1;
+
+foreach ($query as $row) {
+                       
+    echo '<tr>
+    <td align=right>'.$no.'</td>
+    <td>'.$row[Namapeg].'/ <br>'.$row[NIP].'</td>
+    <td>'.$row[Golongan].'<br> </td>
+    <td>'.$row[Jabatan].'<br> </td>
+    </tr>';
+    $no++;
+};
+
+
+
+echo '
+</table>
+
+
+    <br>
+    
+   <table border=2  width="100%" cellspacing="0" cellpadding="2" 
+              style="font-family:Times New Roman ;font-size:13px;" >
+     <tr><td valign="top" width="100px">Untuk </td><td valign="top">:</td>
+
+     <td valign="top" text-align="justify">1. '.$keperluandl.' -  '.$trader[0]['nm_trader'].' Alamat '.$trader[0]['al_trader'].' </td>
+     </tr>
+   
+    </table>
+    <table border="1" cellpadding="1" cellspacing="1" repeat_header=1 width=100% style="margin-top:10px; margin-left:70px;    style="font-family:Times New Roman ;font-size:13px;"">
+<thead>
+<tr>
+<th style="text-align:center; font-weight:bold;">No</td>
+<th style="text-align:center; font-weight:bold;">Tempat/Lokasi kegiatan/Instalasi Karantina Ikan</td>
+<th style="text-align:center; font-weight:bold;">Jenis Komoditi/Jumlah</td>
+<th style="text-align:center; font-weight:bold;">Waktu Pelaksanaan Tugas</td>
+
+</tr>
+</thead>';
+
+$no = 1;
+
+
+                       
+    echo '<tr>
+    <td align=right>'.$no.'</td>
+    <td>'.$trader[0][nm_trader].' <br></td>
+    <td>'.$tujuandl.'<br> </td>
+    <td>'.$tanggal_berangkat.' s/d '.$tanggal_pulang.' <br> </td>
+    </tr>';
+
+
+
+echo '
+</table>
+ <table border=2  width="100%" cellspacing="0" cellpadding="2" 
+              style="font-family:Times New Roman ;font-size:13px;" >
+     <tr><td valign="top" width="100px"> </td><td valign="top">:</td>
+
+     <td valign="top" text-align="justify">2. Setelah selesai melaksanakan tugas diharapkan membuat laporan kepada atasan langsung dan dilaksana
+              kan sebaik-baiknya dengan penuh rasa tanggung jawab.</td>
+     </tr>
+   
+    </table>
+    <br>
+    
+   <table width=100%>
+  <tr>
+    <td width="30%">
+    </td>
+
+    <td width="30%">
+
+    </td>
+     <td >
+        
+        <table>
+            <tr><td width="250px">Semarang,  '.$tanggalttd.'</td></tr>
+            <tr><td width="60px">'.$pj.',</td></tr>
+              
+          
+        </table><br>
+        <left>
+          <br><br><br><br>
+
+          '.$pjttd.'<br>
+         <br>
+         </left>
+    </td>
+  </tr>
+</table> 
+<br>
+<br>
+
+  <table width=100%>
+  <tr>
+
+     <td >
+        
+    
+         <table width="60%" cellspacing="0" >
+    <tr><td rowspan="6" width="15%" align=center><img src='.$filename.'  width="60px" height="60px" ></img></td>
+      
+    
+    <tr><td align=left style="font-size:9px;font-weight:bold; ">Untuk Perhatian:</td></tr>
+     <tr><td align=left style="font-size:9px;font-weight:bold;">Dilarang memberikan sesuatu</td></tr>
+     <tr><td align=left style="font-size:9px;font-weight:bold;">yang dapat menimbulkan GRATIFIKASI</td></tr>
+    
+    </table>
+     
+    </td>
+  </tr>
+</table>    
+    
+   
+   
+    </body></html>';
+
+$html   = ob_get_contents();
+ob_end_clean();
+$mpdf = new mPDF('utf-8','A4');
+$mpdf->setFooter('');
+$mpdf->WriteHTML(utf8_encode($html));
+$mpdf->Output($nama_dokumen.".pdf",'I');
+exit;
+  
+?>
+
+//page_laporancetak baru
+<?php
+
+$output = '
+<head>  
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+.line-title {
+    border: 0;
+    border-style: inset;
+    border-top: 1px solid #000;
+}
+</head>
+<body>
+    <img src="" style="position: absolute; width: 60px; height: auto;">
+    <table style="width: 100%;">
+        <tr>
+            <td align="center">
+                <span style="line-height: 2.5; font-weight:bold;">
+                BALAI KARANTINA IKAN DAN PENGENDALIAN MUTU <br> KOTA SEMARANG
+                </span><br>
+                <small>Jl. Ki Mangunsarkoro No.23, Karangkidul, Kec. Semarang Tengah, Kota Semarang, Jawa Tengah 50241</small>
+                <br>
+            </td>
+        </tr>
+    </table>
+    <hr class="line-title">
+    <p align="center">
+        LAPORAN ALAT UKUR
+    </p>
+    <div style="font-size: 10px;">
+        <table class="table table-bordered">
+            <tr>
+            <th>Kode Alat Ukur</th>
+            <th>Nama Alat Ukur</th>
+            <th>Pegawai Peminjam</th>
+            <th>Pegawai Pengembali</th>
+            <th>Tanggal Peminjaman</th>
+            <th>Tanggal Pengembalian</th>
+            <th>Nama Admin</th>
+            </tr>
+            <tbody>
+            ';
+while ($row = mysqli_fetch_array($result)) {
+    $output .= '
+    
+                    <tr>
+                        <td>' . $row["kd_alatukur"] . ' </td>
+                        <td>' . $row["nama_alatukur"] . ' </td>
+                        <td>' . $row["pegawai_peminjam"] . ' </td>
+                        <td>' . $row["pegawai_pengembali"] . ' </td>
+                        <td>' . $row["tanggal_peminjaman"] . '</td>
+                        <td>' . $row["tanggal_pengembalian"] . ' </td>
+                        <td>' . $row["nama_admin"] . ' </td>
+                    </tr>
+                    ';
+}
+$output .= '
+</tbody>
+</table>
+</div>
+</body>';
+
+
+
+$document->loadHtml($output);
+$document->setPaper('A4', 'potrait');
+$document->render();
+$document->stream("alatukur.pdf", array("Attachment" => 0));
+
+//page_laporan_cetak
+<?php
+
+error_reporting(0);
+
+$timezone = "Asia/Jakarta";
+if(function_exists(date_default_timezone_set)) date_default_timezone_set($timezone);
+
+$this->db->select('*');
+$this->db->from('tb_detail_dokumen');
+$this->db->join('tb_pegawai', 'tb_pegawai.NIP = tb_detail_dokumen.NIP','left');
+$this->db->where('id_doc', $id_doc);
+$this->db->order_by('tb_pegawai.no_duk', "Asc");
+$query = $this->db->get()->result_array();
+
+$this->db->select('*');
+$this->db->from('tb_dokumen');
+$this->db->join('tb_r_trader', 'tb_r_trader.id_trader = tb_dokumen.id_trader','left');
+$this->db->where('id_doc', $id_doc);
+$trader = $this->db->get()->result_array();
+
+
+$filename = $id_doc.'.png';
+$substr_nosurat = substr($nosurat,4,26);
+$substr_awal    = str_repeat('&nbsp;', 8);
+
+
+ob_start();
+
+echo '  
+    <html>
+    <head><title></title>
+        <style type="text/css">
+    p{
+        text-align:left;
+        font-size:7px;
+        font-family:"Times New Roman", Times, serif;
+        color:#000066;
+    }
+    body{
+        font-size:14px;
+        font-family:"Times New Roman", Times, serif;    
+    }
+    
+    table{
+        border-style:none;
+        border-width:thin;
+        border-spacing:inherit;
+    }
+        
+    </style>
+    
+    </head>
+    <body>
+    <table width="100%" cellspacing="0">
+    <tr><td align=center style="font-size:14px;">
+    </td>
+    </tr>
+    <tr><td align=center style="font-size:14px;">  
+    </td></tr>
+    
+    <tr><td align=center style="font-size:12px;"></td></tr>
+    
+    <tr><td align=center style="font-size:10px;"></td></tr>
+    <tr><td align=center style="font-size:10px;"></td></tr>
+    <tr><td align=center style="font-size:10px;"></td></tr>
+    <tr><td align=center style="font-size:10px;"></td></tr>
+    <tr><td align=center style="font-size:10px;"></td></tr>
+    <tr><td align=center style="font-size:10px;"></td></tr>
+    <tr><td align=center style="font-size:10px;"></td></tr>
+    <tr><td align=center style="font-size:10px;"></td></tr>
+    </table>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+  <table width=100%>
+<tr>
+<tr>
+<tr>
+
+    <td align="center"><h2  align=center>LAPORAN PERJALANAN DINAS</h2></td>
+</tr> 
+ 
+</table>
+
+    <br>
+    <br>
+    <br>
+
+<table border="1" cellpadding="3" cellspacing="3" repeat_header=1 width=100% style="margin-top:10px; margin-left:70px;">
+<thead>
+<tr>
+<th style="text-align:center; font-weight:bold;">No</td>
+<th style="text-align:center; font-weight:bold;">Nama/NIP</td>
+<th style="text-align:center; font-weight:bold;">Pangkat/Golongan</td>
+<th style="text-align:center; font-weight:bold;">Jabatan</td>
+
+</tr>
+</thead>';
+
+$no = 1;
+
+foreach ($query as $row) {
+                       
+    echo '<tr>
+    <td align=right>'.$no.'</td>
+    <td>'.$row[Namapeg].'/ <br>'.$row[NIP].'</td>
+    <td>'.$row[Golongan].'<br> </td>
+    <td>'.$row[Jabatan].'<br> </td>
+    </tr>';
+    $no++;
+};
+
+
+
+echo '
+</table>
+
+
+    <br>
+    
+   <table border=2  width="100%" cellspacing="0" cellpadding="2" 
+              style="font-family:Times New Roman ;font-size:13px;" >
+     </tr>
+   
+    </table>
+    <table border="1" cellpadding="1" cellspacing="1" repeat_header=1 width=100% style="margin-top:10px; margin-left:70px;    style="font-family:Times New Roman ;font-size:13px;"">
+<thead>
+<tr>
+<th style="text-align:center; font-weight:bold;">No</td>
+<th style="text-align:center; font-weight:bold;">Tempat/Lokasi kegiatan/Instalasi Karantina Ikan</td>
+<th style="text-align:center; font-weight:bold;">Jenis Komoditi/Jumlah</td>
+<th style="text-align:center; font-weight:bold;">Waktu Pelaksanaan Tugas</td>
+
+</tr>
+</thead>';
+
+$no = 1;
+
+
+                       
+    echo '<tr>
+    <td align=right>'.$no.'</td>
+    <td>'.$trader[0]['nm_trader'].' <br></td>
+    <td>'.$tujuandl.'<br> </td>
+    <td>'.$tanggal_berangkat.' s/d '.$tanggal_pulang.' <br> </td>
+    </tr>';
+
+
+
+echo '
+</table>
+ <table border=2  width="100%" cellspacing="0" cellpadding="2" 
+              style="font-family:Times New Roman ;font-size:13px;" >
+     <tr><td valign="top" width="100px"> </td><td valign="top">:</td>
+     </tr>
+   
+    </table>
+    <br>
+    
+   <table width=100%>
+  <tr>
+    <td width="30%">
+    </td>
+
+    <td width="30%">
+
+    </td>
+     <td >
+        
+        <table>
+            <tr><td width="250px">Semarang,  '.$tanggalttd.'</td></tr>
+            <tr><td width="60px">'.$pj.',</td></tr>
+              
+          
+        </table><br>
+        <left>
+          <br><br><br><br>
+
+          '.$pjttd.'<br>
+         <br>
+         </left>
+    </td>
+  </tr>
+</table> 
+<br>
+<br>
+
+  <table width=100%>
+  <tr>
+
+     <td >
+        
+    
+         <table width="60%" cellspacing="0" >
+    <tr><td rowspan="6" width="15%" align=center><img src='.$filename.'  width="60px" height="60px" ></img></td>
+      
+    
+    <tr><td align=left style="font-size:9px;font-weight:bold; ">Untuk Perhatian:</td></tr>
+     <tr><td align=left style="font-size:9px;font-weight:bold;">Dilarang memberikan sesuatu</td></tr>
+     <tr><td align=left style="font-size:9px;font-weight:bold;">yang dapat menimbulkan GRATIFIKASI</td></tr>
+    
+    </table>
+     
+    </td>
+  </tr>
+</table>    
+    
+   
+   
+    </body></html>';
+
+$html   = ob_get_contents();
+ob_end_clean();
+$mpdf = new mPDF('utf-8','A4');
+$mpdf->setFooter('');
+$mpdf->WriteHTML(utf8_encode($html));
+$mpdf->Output($nama_dokumen.".pdf",'I');
+exit;
+  
+?>
+
+//page_laporan_cetakform
+<?php
+
+error_reporting(0);
+
+$timezone = "Asia/Jakarta";
+if(function_exists(date_default_timezone_set)) date_default_timezone_set($timezone);
+
+$this->db->select('*');
+$this->db->from('tb_detail_dokumen');
+$this->db->join('tb_pegawai', 'tb_pegawai.NIP = tb_detail_dokumen.NIP','left');
+$this->db->where('id_doc', $id_doc);
+$this->db->order_by('tb_pegawai.no_duk', "Asc");
+$query = $this->db->get()->result_array();
+
+$this->db->select('*');
+$this->db->from('tb_dokumen');
+$this->db->join('tb_r_trader', 'tb_r_trader.id_trader = tb_dokumen.id_trader','left');
+$this->db->where('id_doc', $id_doc);
+$trader = $this->db->get()->result_array();
+
+$filename = $id_doc.'.png';
+$substr_nosurat = substr($nosurat,4,26);
+$substr_awal    = str_repeat('&nbsp;', 8);
+
+
+ob_start();
+
+echo '  
+    <html>
+    <head><title>Laporan Perjalanan Dinas</title>
+        <style type="text/css">
+    .kiri{
+        text-align:left;
+        font-size:15px;
+        font-family:"Arial", Times, serif;
+        color: black;
+    }
+
+    .kanan{
+      text-align: right;
+      font-size: 15px;
+      font-family:"Arial", Times, serif;
+      color: black;
+  }
+
+    body{
+        font-size:14px;
+        font-family:"Times New Roman", Times, serif;    
+    }
+
+    h2{
+        text-align: center;
+        font-size: 15px;
+        font-family:"Arial";
+        color: black;
+    }
+    
+    table{
+        border-style:none;
+        border-width:thin;
+        border-spacing:inherit;
+    }
+     table, th, td {
+            border: 1px solid black;
+            height: justify;
+         }
+        
+    </style>
+    
+    </head>
+    <body>
+
+    <h2> Laporan Perjalanan Dinas </h2>
+ 
+     <table border=1  width="100%" cellspacing="5" cellpadding="5" 
+     style="font-family:Arial;font-size:14px;" text-align="justify">
+ 
+
+       <tr>
+         <td width="30px" align="center">I</td>
+         <td width="300px"> Nama  </td>
+         <td width="10px"> :  </td>
+         <td colspan="2">R. Gatot Perdana, A.Pi, M.MPi</td>
+       </tr>
+       <tr>
+         <td align="center"></td>
+         <td width="300px"> NIP </td>
+         <td width="20px"> :  </td>
+         <td colspan="2"> 197305311998031002 </td>
+         </td>
+       </tr>
+       <tr>
+        <td align="center"></td>
+        <td width="300px">  Pangkat/Gol </td>
+        <td width="20px"> :  </td>
+        <td colspan="2"> Pembina Tingkat I/IVb </td>
+        </td>
+       </tr>
+       <tr>
+            <td align="center"></td>
+            <td width="300px">  Jabatan  </td>
+            <td width="20px"> :  </td>
+            <td colspan="2"> Kepala Balai KIPM Semarang </td>
+        </td>
+        </tr>
+
+       <tr>
+        <td width="30px" align="center">II</td>
+        <td width="300px"> Dasar Kegiatan  </td>
+        <td width="20px"> :  </td>
+        <td colspan="2">Surat Tugas No. 1339/17.0/KP.440/XI/2019</td>
+       </tr>
+
+       <tr>
+       <td width="30px" align="center">III</td>
+       <td width="300px"> Tanggal 
+       <br> Pelaksanaan </br> </td>
+       <td width="20px"> :  </td>
+       <td colspan="2">Selasa, 19 November 2019</td>
+      </tr>
+      <tr>
+       <td width="30px" align="center"></td>
+       <td width="300px"> Tempat/Tujuan </td>
+       <td width="20px"> :  </td>
+       <td colspan="2">Binakarna Auditorium, Hotel Bidakara Jakarta</td>
+      </tr>
+  
+      <tr>
+       <td width="30px" align="center">IV</td>
+       <td width="300px"> Tujuan Kegiatan </td>
+       <td width="20px"> :  </td>
+       <td colspan="2">Sosialisasi dan Pendampingan Persiapan Evaluasi Pelayanan Publik Tahun 2019 pada Kementrian/Lembaga</td>
+      </tr>
+
+      <tr>
+      <td width="30px" align="center">V</td>
+      <td width="300px"> Hasil Perjalanan Dinas </td>
+      <td width="20px"> :  </td>
+      <td colspan="2"> </td>
+     </tr>
+
+</table>
+
+<br>
+    <br>
+     <tr>
+        <td valign="center" text-align="justify"> A. </td>
+        <tr><td align=center style="font-size:14px;">Latar Belakang</td></tr> 
+        <td valign="top" text-align="justify">'.$ltrblkng.'</td>
+     </tr>
+    </br>
+
+    <br>
+    <br> <br> <br> 
+     <tr>
+        <td valign="center" text-align="justify"> B. </td>
+        <td valign="center" text-align="justify"> Maksud, Tujuan dan Sasaran </td>
+        <td valign="top" text-align="justify">'.$mksdtujuansasaran.'</td>
+     </tr>
+    </br> 
+
+    <br>
+    <br> <br> <br> 
+     <tr>
+        <td valign="center" text-align="justify"> C. </td>
+        <td valign="center" text-align="justify"> Hasil Perjalanan Dinas </td>
+        <td valign="top" text-align="justify">'.$hsldinas.'</td>
+     </tr>
+    </br>
+</br>
+            
+        <br> <br>
+        <br>  <br> <br>
+        <br>  <br> <br>
+        <br>  <br> <br>
+        <br> <br> <br>
+        <br> <br> <br>
+        
+        <td >
+                <tr><td width="60px">Kepala,</td></tr>
+
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+
+                <tr><td width="60px" text-align="right"> Pelaksana,</td></tr>
+                
+            
+            <br>
+
+        <tr>
+            <left>
+            <br><br><br><br>
+
+            '.$pjttd.'
+    
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> <right> <right>
+                <right> <right> <right> <right> <right> 
+            
+            '.$pjttd.'<br>
+            <br>
+            </right>
+            </left>
+    
+        </tr>
+
+            <table width="60%" cellspacing="0" >
+        <tr><td rowspan="6" width="15%" align=center><img src='.$filename.'  width="60px" height="60px" ></img></td>
+        
+
+        
+        </td>
+        </tr>
+
+   
+    </body></html>';
+
+$html   = ob_get_contents();
+ob_end_clean();
+$mpdf = new mPDF('utf-8','A4');
+$mpdf->setFooter('');
+$mpdf->WriteHTML(utf8_encode($html));
+$mpdf->Output($nama_dokumen.".pdf",'I');
+exit;
+  
+?>
+
+
+
+
+

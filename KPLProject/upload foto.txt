@@ -1,0 +1,14 @@
+//upload foto 
+<div class="container col-lg-6 col-md-9 col-sm-12 text-center align-middle">
+                <div class="input-group mb-3">
+                  <div class="custom-file text-left">
+                    <input type="file" name="photo" class="custom-file-input" id="photo" accept="image/png, image/jpeg">
+                    <label class="custom-file-label photo-label" for="photo" aria-describedby="photo">Pilih file gambar</label>
+                  </div>
+                  <div class="input-group-append">
+                    <input type="submit" class="btn btn-primary input-group-text" id="submit-photo" name="submit-photo" value="Ubah Foto">
+                  </div>
+                </div>
+                <?= '<p class="text-danger">' . $this->session->flashdata('message-photo') . '</p>'; ?>
+              </div>
+            </form>
