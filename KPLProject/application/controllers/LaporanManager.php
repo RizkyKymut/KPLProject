@@ -232,21 +232,6 @@ class LaporanManager extends CI_Controller {
 				}
 			} 
 	
-		public function update($id_doc){
 	
-		ob_start();
-				// edit ediit elemen update
-						
-				
-				$hsldinas			= $this->input->post('hsldinas');
-
-				$this->db->set("hsldinas", $hsldinas);
-				$this->db->where("id_doc", $id_doc);
-				$this->db->update("tb_dokumen");
-				
-				   
-					redirect('laporanManager'.$id_doc);
-					
-		}
 	
 }
