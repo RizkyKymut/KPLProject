@@ -215,25 +215,11 @@ class LaporanEmployee extends CI_Controller {
 						break;
 			}
 	}
-	public function update($id_doc){
-			$data['user'] = $this->db->get_where('tbl_users', ['email' => $this->session->userdata('emaile')])->row_array();
-			ob_start();
+
 					// edit ediit elemen update
 							
-					$nosurat			= $this->input->post('nosurat');
-					$menimbang			= $this->input->post('menimbang');
-					$dasar 				= $this->input->post('dasar');
-					
-					$pegawai			= $this->input->post('pegawai');
-					$tujuandl			= $this->input->post('tujuandl');
-					
-					$tanggalttd			= $this->input->post('tanggalttd');
-					$pj					= $this->input->post('pj');		
-					$pjttd				= $this->input->post('pjttd');
-					
-					$tanggal_pulang   	= $this->input->post('tanggal_pulang');
-					$hsldinas			= $this->input->post('hsldinas');
-	
+
+			
 					$this->db->set("hsldinas", $hsldinas);
 					$this->db->where("id_doc", $id_doc);
 					$this->db->update("tb_dokumen");
