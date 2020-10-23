@@ -817,21 +817,6 @@ abstract class CI_DB_forge {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Field attribute TYPE
-	 *
-	 * Performs a data type mapping between different databases.
-	 *
-	 * @param	array	&$attributes
-	 * @return	void
-	 */
-	protected function _attr_type(&$attributes)
-	{
-		// Usually overridden by drivers
-	}
-
-	// --------------------------------------------------------------------
-
-	/**
 	 * Field attribute UNSIGNED
 	 *
 	 * Depending on the _unsigned property value:

@@ -97,10 +97,7 @@ class CI_DB_mysql_utility extends CI_DB_utility {
 		foreach ( (array) $tables as $table)
 		{
 			// Is the table in the "ignore" list?
-			if (in_array($table, (array) $ignore, TRUE))
-			{
-				continue;
-			}
+			
 
 			// Get the table schema
 			$query = $this->db->query('SHOW CREATE TABLE '.$this->db->escape_identifiers($this->db->database.'.'.$table));
