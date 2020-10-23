@@ -1390,7 +1390,7 @@ class XML_RPC_Message extends CI_Xmlrpc
 		// the opening and closing of elements. Nesting is checked on the opening
 		// tag so we be safe there as well.
 
-		$curr_elem = array_shift($this->xh[$the_parser]['stack']);
+	
 
 		switch ($name)
 		{

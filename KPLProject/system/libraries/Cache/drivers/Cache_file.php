@@ -93,22 +93,7 @@ class CI_Cache_file extends CI_Driver {
 	 * @param	bool	$raw	Whether to store the raw value (unused)
 	 * @return	bool	TRUE on success, FALSE on failure
 	 */
-	public function save($id, $data, $ttl = 60, $raw = FALSE)
-	{
-		$contents = array(
-			'time'		=> time(),
-			'ttl'		=> $ttl,
-			'data'		=> $data
-		);
 
-		if (write_file($this->_cache_path.$id, serialize($contents)))
-		{
-			chmod($this->_cache_path.$id, 0640);
-			return TRUE;
-		}
-
-		return FALSE;
-	}
 
 	// ------------------------------------------------------------------------
 
@@ -201,11 +186,7 @@ class CI_Cache_file extends CI_Driver {
 	 * @param	string	user/filehits
 	 * @return	mixed	FALSE
 	 */
-	public function cache_info($type = NULL)
-	{
-		return get_dir_file_info($this->_cache_path);
-	}
-
+	
 	// ------------------------------------------------------------------------
 
 	/**

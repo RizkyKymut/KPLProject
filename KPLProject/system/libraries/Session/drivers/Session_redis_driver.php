@@ -168,36 +168,7 @@ class CI_Session_redis_driver extends CI_Session_driver implements SessionHandle
 	 * @param	string	$name		Session cookie name, unused
 	 * @return	bool
 	 */
-	public function open($save_path, $name)
-	{
-		if (empty($this->_config['save_path']))
-		{
-			return $this->_failure;
-		}
-
-		$redis = new Redis();
-		if ( ! $redis->connect($this->_config['save_path']['host'], $this->_config['save_path']['port'], $this->_config['save_path']['timeout']))
-		{
-			log_message('error', 'Session: Unable to connect to Redis with the configured settings.');
-		}
-		elseif (isset($this->_config['save_path']['password']) && ! $redis->auth($this->_config['save_path']['password']))
-		{
-			log_message('error', 'Session: Unable to authenticate to Redis instance.');
-		}
-		elseif (isset($this->_config['save_path']['database']) && ! $redis->select($this->_config['save_path']['database']))
-		{
-			log_message('error', 'Session: Unable to select Redis database with index '.$this->_config['save_path']['database']);
-		}
-		else
-		{
-			$this->_redis = $redis;
-			$this->php5_validate_id();
-			return $this->_success;
-		}
-
-		return $this->_failure;
-	}
-
+	
 	// ------------------------------------------------------------------------
 
 	/**
@@ -346,11 +317,7 @@ class CI_Session_redis_driver extends CI_Session_driver implements SessionHandle
 	 * @param	int 	$maxlifetime	Maximum lifetime of sessions
 	 * @return	bool
 	 */
-	public function gc($maxlifetime)
-	{
-		// Not necessary, Redis takes care of that.
-		return $this->_success;
-	}
+	
 
 	// --------------------------------------------------------------------
 

@@ -417,24 +417,7 @@ class CI_Xmlrpcs extends CI_Xmlrpc {
 	 * @param	mixed
 	 * @return	object
 	 */
-	public function listMethods($m)
-	{
-		$v = new XML_RPC_Values();
-		$output = array();
 
-		foreach ($this->methods as $key => $value)
-		{
-			$output[] = new XML_RPC_Values($key, 'string');
-		}
-
-		foreach ($this->system_methods as $key => $value)
-		{
-			$output[] = new XML_RPC_Values($key, 'string');
-		}
-
-		$v->addArray($output);
-		return new XML_RPC_Response($v);
-	}
 
 	// --------------------------------------------------------------------
 
@@ -598,7 +581,7 @@ class CI_Xmlrpcs extends CI_Xmlrpc {
 			return $this->multicall_error('notarray');
 		}
 
-		list($b, $a) = array(reset($params->me), key($params->me));
+
 
 		$msg = new XML_RPC_Message($scalar_value);
 		for ($i = 0, $numParams = count($b); $i < $numParams; $i++)

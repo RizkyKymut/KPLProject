@@ -89,21 +89,6 @@ class CI_Cache_wincache extends CI_Driver {
 
 	// ------------------------------------------------------------------------
 
-	/**
-	 * Cache Save
-	 *
-	 * @param	string	$id	Cache ID
-	 * @param	mixed	$data	Data to store
-	 * @param	int	$ttl	Time to live (in seconds)
-	 * @param	bool	$raw	Whether to store the raw value (unused)
-	 * @return	bool	true on success/false on failure
-	 */
-	public function save($id, $data, $ttl = 60, $raw = FALSE)
-	{
-		return wincache_ucache_set($id, $data, $ttl);
-	}
-
-	// ------------------------------------------------------------------------
 
 	/**
 	 * Delete from Cache

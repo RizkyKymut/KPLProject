@@ -367,7 +367,7 @@ class CI_Pagination {
 		// Should be removed in CI 3.1+
 		if (isset($params['anchor_class']))
 		{
-			empty($params['anchor_class']) OR $attributes['class'] = $params['anchor_class'];
+			
 			unset($params['anchor_class']);
 		}
 

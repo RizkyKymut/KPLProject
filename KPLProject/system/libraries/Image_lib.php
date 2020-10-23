@@ -776,7 +776,7 @@ class CI_Image_lib {
 			if ($this->gd_version() !== FALSE)
 			{
 				$gd_version = str_replace('0', '', $this->gd_version());
-				$v2_override = ($gd_version == 2);
+				
 			}
 		}
 		else
@@ -868,7 +868,7 @@ class CI_Image_lib {
 		}
 
 		// Execute the command
-		$cmd = $this->library_path.' -quality '.$this->quality;
+		
 
 		if ($action === 'crop')
 		{
@@ -974,11 +974,7 @@ class CI_Image_lib {
 		$cmd = $this->library_path.$cmd_in.' '.escapeshellarg($this->full_src_path).' | '.$cmd_inner.' | '.$cmd_out.' > '.$this->dest_folder.'netpbm.tmp';
 
 		$retval = 1;
-		// exec() might be disabled
-		if (function_usable('exec'))
-		{
-			@exec($cmd, $output, $retval);
-		}
+		
 
 		// Did it work?
 		if ($retval > 0)
