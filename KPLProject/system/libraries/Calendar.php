@@ -237,8 +237,7 @@ class CI_Calendar {
 		$this->parse_template();
 
 		// Begin building the calendar output
-		$out = $this->replacements['table_open']."\n\n".$this->replacements['heading_row_start']."\n";
-
+		
 		// "previous" month link
 		if ($this->show_next_prev === TRUE)
 		{

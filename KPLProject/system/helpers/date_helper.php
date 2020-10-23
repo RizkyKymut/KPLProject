@@ -576,7 +576,7 @@ if ( ! function_exists('timezone_menu'))
 
 		$default = ($default === 'GMT') ? 'UTC' : $default;
 
-		$menu = '<select name="'.$name.'"';
+	
 
 		if ($class !== '')
 		{

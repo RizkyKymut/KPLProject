@@ -751,7 +751,7 @@ class CI_Image_lib {
 	 */
 	public function image_process_gd($action = 'resize')
 	{
-		$v2_override = FALSE;
+	
 
 		// If the target width/height match the source, AND if the new file name is not equal to the old file name
 		// we'll simply make a copy of the original with the new name... assuming dynamic rendering is off.
@@ -895,11 +895,7 @@ class CI_Image_lib {
 		$cmd .= ' '.escapeshellarg($this->full_src_path).' '.escapeshellarg($this->full_dst_path).' 2>&1';
 
 		$retval = 1;
-		// exec() might be disabled
-		if (function_usable('exec'))
-		{
-			@exec($cmd, $output, $retval);
-		}
+	
 
 		// Did it work?
 		if ($retval > 0)

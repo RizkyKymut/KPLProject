@@ -85,21 +85,7 @@ class CI_Cache_apc extends CI_Driver {
 
 	// ------------------------------------------------------------------------
 
-	/**
-	 * Cache Save
-	 *
-	 * @param	string	$id	Cache ID
-	 * @param	mixed	$data	Data to store
-	 * @param	int	$ttl	Length of time (in seconds) to cache the data
-	 * @param	bool	$raw	Whether to store the raw value (unused)
-	 * @return	bool	TRUE on success, FALSE on failure
-	 */
-	public function save($id, $data, $ttl = 60, $raw = FALSE)
-	{
-		return apc_store($id, $data, (int) $ttl);
-	}
-
-	// ------------------------------------------------------------------------
+	
 
 	/**
 	 * Delete from Cache

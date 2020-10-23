@@ -198,18 +198,6 @@ class CI_Cache extends CI_Driver_Library {
 	// ------------------------------------------------------------------------
 
 	/**
-	 * Clean the cache
-	 *
-	 * @return	bool	TRUE on success, FALSE on failure
-	 */
-	public function clean()
-	{
-		return $this->{$this->_adapter}->clean();
-	}
-
-	// ------------------------------------------------------------------------
-
-	/**
 	 * Cache Info
 	 *
 	 * @param	string	$type = 'user'	user/filehits

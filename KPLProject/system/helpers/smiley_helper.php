@@ -203,13 +203,7 @@ if ( ! function_exists('parse_smileys'))
 		// Add a trailing slash to the file path if needed
 		$image_url = rtrim($image_url, '/').'/';
 
-		foreach ($smileys as $key => $val)
-		{
-			$str = str_replace($key, '<img src="'.$image_url.$smileys[$key][0].'" alt="'.$smileys[$key][3].'" style="width: '.$smileys[$key][1].'; height: '.$smileys[$key][2].'; border: 0;" />', $str);
-		}
-
-		return $str;
-	}
+	
 }
 
 // ------------------------------------------------------------------------

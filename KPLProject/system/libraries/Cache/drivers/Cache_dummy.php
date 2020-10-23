@@ -60,21 +60,7 @@ class CI_Cache_dummy extends CI_Driver {
 
 	// ------------------------------------------------------------------------
 
-	/**
-	 * Cache Save
-	 *
-	 * @param	string	Unique Key
-	 * @param	mixed	Data to store
-	 * @param	int	Length of time (in seconds) to cache the data
-	 * @param	bool	Whether to store the raw value
-	 * @return	bool	TRUE, Simulating success
-	 */
-	public function save($id, $data, $ttl = 60, $raw = FALSE)
-	{
-		return TRUE;
-	}
-
-	// ------------------------------------------------------------------------
+	
 
 	/**
 	 * Delete from Cache
