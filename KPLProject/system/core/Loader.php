@@ -923,14 +923,8 @@ class CI_Loader {
 
 		// This allows anything loaded using $this->load (views, files, etc.)
 		// to become accessible from within the Controller and Model functions.
-		$_ci_CI =& get_instance();
-		foreach (get_object_vars($_ci_CI) as $_ci_key => $_ci_var)
-		{
-			if ( ! isset($this->$_ci_key))
-			{
-				$this->$_ci_key =& $_ci_CI->$_ci_key;
-			}
-		}
+		
+	
 
 		/*
 		 * Extract and cache variables
