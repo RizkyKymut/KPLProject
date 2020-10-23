@@ -179,20 +179,7 @@ class CI_Parser {
 
 	// --------------------------------------------------------------------
 
-	/**
-	 * Parse a single key/value
-	 *
-	 * @param	string
-	 * @param	string
-	 * @param	string
-	 * @return	string
-	 */
-	protected function _parse_single($key, $val, $string)
-	{
-		return array($this->l_delim.$key.$this->r_delim => (string) $val);
-	}
 
-	// --------------------------------------------------------------------
 
 	/**
 	 * Parse a tag pair

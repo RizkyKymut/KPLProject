@@ -68,9 +68,7 @@ class CI_Javascript {
 	{
 		$defaults = array('js_library_driver' => 'jquery', 'autoload' => TRUE);
 
-		foreach ($defaults as $key => $val)
-		{
-			if (isset($params[$key]) && $params[$key] !== '')
+		if (isset($params[$key]) && $params[$key] !== '')
 			{
 				$defaults[$key] = $params[$key];
 			}
@@ -83,7 +81,7 @@ class CI_Javascript {
 		// load the requested js library
 		$this->CI->load->library('Javascript/'.$js_library_driver, array('autoload' => $autoload));
 		// make js to refer to current library
-		$this->js =& $this->CI->$js_library_driver;
+		
 
 		log_message('info', 'Javascript Class Initialized and loaded. Driver used: '.$js_library_driver);
 	}

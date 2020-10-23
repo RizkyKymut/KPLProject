@@ -152,23 +152,6 @@ abstract class CI_Session_driver implements SessionHandlerInterface {
 
 	// ------------------------------------------------------------------------
 
-	/**
-	 * Get lock
-	 *
-	 * A dummy method allowing drivers with no locking functionality
-	 * (databases other than PostgreSQL and MySQL) to act as if they
-	 * do acquire a lock.
-	 *
-	 * @param	string	$session_id
-	 * @return	bool
-	 */
-	protected function _get_lock($session_id)
-	{
-		$this->_lock = TRUE;
-		return TRUE;
-	}
-
-	// ------------------------------------------------------------------------
 
 	/**
 	 * Release lock

@@ -110,10 +110,7 @@ class CI_Jquery extends CI_Javascript {
 		$this->CI =& get_instance();
 		extract($params);
 
-		if ($autoload === TRUE)
-		{
-			$this->script();
-		}
+		
 
 		log_message('info', 'Jquery Class Initialized');
 	}
@@ -797,7 +794,7 @@ class CI_Jquery extends CI_Javascript {
 	public function corner($element = '', $corner_style = '')
 	{
 		// may want to make this configurable down the road
-		$corner_location = '/plugins/jquery.corner.js';
+		
 
 		if ($corner_style !== '')
 		{

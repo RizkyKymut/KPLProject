@@ -94,61 +94,6 @@ class CI_Session_memcached_driver extends CI_Session_driver implements SessionHa
 
 	// ------------------------------------------------------------------------
 
-	/**
-	 * Open
-	 *
-	 * Sanitizes save_path and initializes connections.
-	 *
-	 * @param	string	$save_path	Server path(s)
-	 * @param	string	$name		Session cookie name, unused
-	 * @return	bool
-	 */
-	public function open($save_path, $name)
-	{
-		$this->_memcached = new Memcached();
-		$this->_memcached->setOption(Memcached::OPT_BINARY_PROTOCOL, TRUE); // required for touch() usage
-		$server_list = array();
-		foreach ($this->_memcached->getServerList() as $server)
-		{
-			$server_list[] = $server['host'].':'.$server['port'];
-		}
-
-		if ( ! preg_match_all('#,?([^,:]+)\:(\d{1,5})(?:\:(\d+))?#', $this->_config['save_path'], $matches, PREG_SET_ORDER))
-		{
-			$this->_memcached = NULL;
-			log_message('error', 'Session: Invalid Memcached save path format: '.$this->_config['save_path']);
-			return $this->_failure;
-		}
-
-		foreach ($matches as $match)
-		{
-			// If Memcached already has this server (or if the port is invalid), skip it
-			if (in_array($match[1].':'.$match[2], $server_list, TRUE))
-			{
-				log_message('debug', 'Session: Memcached server pool already has '.$match[1].':'.$match[2]);
-				continue;
-			}
-
-			if ( ! $this->_memcached->addServer($match[1], $match[2], isset($match[3]) ? $match[3] : 0))
-			{
-				log_message('error', 'Could not add '.$match[1].':'.$match[2].' to Memcached server pool.');
-			}
-			else
-			{
-				$server_list[] = $match[1].':'.$match[2];
-			}
-		}
-
-		if (empty($server_list))
-		{
-			log_message('error', 'Session: Memcached server pool is empty.');
-			return $this->_failure;
-		}
-
-		$this->php5_validate_id();
-
-		return $this->_success;
-	}
 
 	// ------------------------------------------------------------------------
 
@@ -278,21 +223,6 @@ class CI_Session_memcached_driver extends CI_Session_driver implements SessionHa
 
 	// ------------------------------------------------------------------------
 
-	/**
-	 * Garbage Collector
-	 *
-	 * Deletes expired sessions
-	 *
-	 * @param	int 	$maxlifetime	Maximum lifetime of sessions
-	 * @return	bool
-	 */
-	public function gc($maxlifetime)
-	{
-		// Not necessary, Memcached takes care of that.
-		return $this->_success;
-	}
-
-	// --------------------------------------------------------------------
 
 	/**
 	 * Validate ID
