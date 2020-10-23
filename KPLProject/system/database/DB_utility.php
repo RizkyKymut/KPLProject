@@ -341,17 +341,7 @@ abstract class CI_DB_utility {
 			'foreign_key_checks'	=> TRUE
 		);
 
-		// Did the user submit any preferences? If so set them....
-		if (count($params) > 0)
-		{
-			foreach ($prefs as $key => $val)
-			{
-				if (isset($params[$key]))
-				{
-					$prefs[$key] = $params[$key];
-				}
-			}
-		}
+
 
 		// Are we backing up a complete database or individual tables?
 		// If no table names were submitted we'll fetch the entire table list
