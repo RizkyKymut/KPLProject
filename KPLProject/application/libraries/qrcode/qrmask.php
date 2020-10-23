@@ -86,7 +86,7 @@
         
         //----------------------------------------------------------------------
         public function mask0($x, $y) { return ($x+$y)&1;                       }
-        public function mask1($x, $y) { return ($y&1);                          }
+                           
        
         public function mask3($x, $y) { return ($x+$y)%3;                       }
         public function mask4($x, $y) { return (((int)($y/2))+((int)($x/3)))&1; }

@@ -162,8 +162,7 @@ if ( ! function_exists('get_clickable_smileys'))
 		$image_url = rtrim($image_url, '/').'/';
 
 		$used = array();
-		foreach ($smileys as $key => $val)
-		{
+		
 			// Keep duplicates from being used, which can happen if the
 			// mapping array contains multiple identical replacements. For example:
 			// :-) and :) might be replaced with the same image so both smileys
@@ -175,8 +174,7 @@ if ( ! function_exists('get_clickable_smileys'))
 
 			$link[] = '<a href="javascript:void(0);" onclick="insert_smiley(\''.$key.'\', \''.$alias.'\')"><img src="'.$image_url.$smileys[$key][0].'" alt="'.$smileys[$key][3].'" style="width: '.$smileys[$key][1].'; height: '.$smileys[$key][2].'; border: 0;" /></a>';
 			$used[$smileys[$key][0]] = TRUE;
-		}
-
+		
 		return $link;
 	}
 }
