@@ -97,23 +97,7 @@ class CI_DB_pdo_firebird_forge extends CI_DB_pdo_forge {
 	 * @param	string	$db_name	(ignored)
 	 * @return	bool
 	 */
-	public function drop_database($db_name)
-	{
-		if ( ! ibase_drop_db($this->conn_id))
-		{
-			return ($this->db->db_debug) ? $this->db->display_error('db_unable_to_drop') : FALSE;
-		}
-		elseif ( ! empty($this->db->data_cache['db_names']))
-		{
-			$key = array_search(strtolower($this->db->database), array_map('strtolower', $this->db->data_cache['db_names']), TRUE);
-			if ($key !== FALSE)
-			{
-				unset($this->db->data_cache['db_names'][$key]);
-			}
-		}
-
-		return TRUE;
-	}
+	
 
 	// --------------------------------------------------------------------
 
@@ -222,16 +206,6 @@ class CI_DB_pdo_firebird_forge extends CI_DB_pdo_forge {
 
 	// --------------------------------------------------------------------
 
-	/**
-	 * Field attribute AUTO_INCREMENT
-	 *
-	 * @param	array	&$attributes
-	 * @param	array	&$field
-	 * @return	void
-	 */
-	protected function _attr_auto_increment(&$attributes, &$field)
-	{
-		// Not supported
-	}
+	
 
 }

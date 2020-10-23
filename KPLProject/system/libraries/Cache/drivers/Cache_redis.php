@@ -179,25 +179,7 @@ class CI_Cache_redis extends CI_Driver
 	 * @param	bool	$raw	Whether to store the raw value (unused)
 	 * @return	bool	TRUE on success, FALSE on failure
 	 */
-	public function save($id, $data, $ttl = 60, $raw = FALSE)
-	{
-		if (is_array($data) OR is_object($data))
-		{
-			if ( ! $this->_redis->sIsMember('_ci_redis_serialized', $id) && ! $this->_redis->sAdd('_ci_redis_serialized', $id))
-			{
-				return FALSE;
-			}
-
-			isset($this->_serialized[$id]) OR $this->_serialized[$id] = TRUE;
-			$data = serialize($data);
-		}
-		else
-		{
-			$this->_redis->sRemove('_ci_redis_serialized', $id);
-		}
-
-		return $this->_redis->set($id, $data, $ttl);
-	}
+	
 
 	// ------------------------------------------------------------------------
 
@@ -271,10 +253,6 @@ class CI_Cache_redis extends CI_Driver
 	 * @return	array
 	 * @see		Redis::info()
 	 */
-	public function cache_info($type = NULL)
-	{
-		return $this->_redis->info();
-	}
 
 	// ------------------------------------------------------------------------
 

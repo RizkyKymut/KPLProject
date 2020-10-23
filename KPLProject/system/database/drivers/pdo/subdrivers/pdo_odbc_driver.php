@@ -214,16 +214,4 @@ class CI_DB_pdo_odbc_driver extends CI_DB_pdo_driver {
 
 	// --------------------------------------------------------------------
 
-	/**
-	 * Show column query
-	 *
-	 * Generates a platform-specific query string so that the column names can be fetched
-	 *
-	 * @param	string	$table
-	 * @return	string
-	 */
-	protected function _list_columns($table = '')
-	{
-		return 'SELECT column_name FROM information_schema.columns WHERE table_name = '.$this->escape($table);
-	}
 }

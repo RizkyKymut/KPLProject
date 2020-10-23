@@ -157,8 +157,8 @@ class CI_Trackback {
 		// Build the Trackback data string
 		$charset = isset($tb_data['charset']) ? $tb_data['charset'] : $this->charset;
 
-		$data = 'url='.rawurlencode($url).'&title='.rawurlencode($title).'&blog_name='.rawurlencode($blog_name)
-			.'&excerpt='.rawurlencode($excerpt).'&charset='.rawurlencode($charset);
+		
+			
 
 		// Send Trackback(s)
 		$return = TRUE;
