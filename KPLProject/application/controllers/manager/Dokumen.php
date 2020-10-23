@@ -316,20 +316,7 @@ ob_flush();
       	   
       	 
 
-  
-		//if (!empty($_FILES)) {
-		//	$tempFile = $_FILES['filename']['tmp_name'];
-		//	$fileName = $_FILES['filename']['name'];
-		//	$path = './uploads/';
-		//	$targetFile = $path.$fileName ;
-		//	move_uploaded_file($tempFile, $targetFile);
-		//	if ($doc=="")
-		//	  $doc = file_get_contents($_FILES['filename']['tmp_name']); 
-		//}
-		
-		//echo "nama file : ".$fileName;
-		//echo "kelas : ".$kelas;
-		
+
 	
 		 
 		 //echo "checked: ".$pre_proc;
@@ -490,7 +477,6 @@ ob_flush();
 		 }
 		
 		} 
-
 		 $data = array(
 
             'id_doc'  			=> $id_doc,
@@ -503,7 +489,7 @@ ob_flush();
 			'keperluandl'		=> $keperluandl,
 			'tanggalttd'		=> $tanggalttd,
 			'pjttd'				=> $pjttd,
-			'pj'				=> $pj,
+			
 			'class_id'			=> $kelas,
 			'created_date'		=> date('Y-m-d H:i:00'),
 			'updated_date' 		=> date('Y-m-d H:i:00')
