@@ -163,16 +163,6 @@ class MY_Email extends CI_Email {
 
     // Keep the API Fluent -----------------------------------------------------
 
-    /**
-     * An empty method that keeps chaining, the parameter does the desired operation as a side-effect.
-     *
-     * @param   mixed   $expression     A (conditional) expression that is to be executed.
-     * @return  object                  Returns a reference to the created library instance.
-     */
-   
-
-
-    // Initialization & Clearing -----------------------------------------------
 
     public function initialize($config = array()) {
 
