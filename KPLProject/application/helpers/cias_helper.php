@@ -18,7 +18,7 @@ if(!function_exists('get_instance'))
 {
     function get_instance()
     {
-        $CI = &get_instance();
+       
     }
 }
 

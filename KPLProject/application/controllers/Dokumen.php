@@ -490,8 +490,7 @@ Bersama ini kami menugaskan saudara : ' . $vpegawai->Namapeg . '
 
 	public function delete_dokumen($id)
 	{
-		$data['user'] = $this->db->get_where('tbl_users', ['email' => $this->session->userdata('emaila')])->row_array();
-		$this->db->delete('tb_dokumen', array('id_doc' => $id));
+	
 		$this->db->delete('tb_detail_dokumen', array('id_doc' => $id));
 		$this->db->delete('events', array('id' =>  $id));
 
