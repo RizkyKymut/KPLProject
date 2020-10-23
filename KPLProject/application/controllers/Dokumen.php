@@ -576,7 +576,6 @@ Bersama ini kami menugaskan saudara : ' . $vpegawai->Namapeg . '
 			'keperluandl'		=> $keperluandl,
 			'tanggalttd'		=> $tanggalttd,
 			'pjttd'				=> $pjttd,
-			
 			'attachments'		=> $attachments,
 			'class_id'			=> $kelas,
 			// 'id_trader'         => $trader[0],
