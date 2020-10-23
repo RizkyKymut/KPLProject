@@ -195,17 +195,6 @@ class CI_DB_pdo_sqlite_forge extends CI_DB_pdo_forge {
 	 * @param	array	&$attributes
 	 * @return	void
 	 */
-	protected function _attr_type(&$attributes)
-	{
-		switch (strtoupper($attributes['TYPE']))
-		{
-			case 'ENUM':
-			case 'SET':
-				$attributes['TYPE'] = 'TEXT';
-				return;
-			default: return;
-		}
-	}
 
 	// --------------------------------------------------------------------
 

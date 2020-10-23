@@ -344,7 +344,7 @@ abstract class CI_DB_utility {
 		// Did the user submit any preferences? If so set them....
 		if (count($params) > 0)
 		{
-			foreach ($prefs as $key => $val)
+			
 			{
 				if (isset($params[$key]))
 				{

@@ -502,7 +502,7 @@ Bersama ini kami menugaskan saudara : ' . $vpegawai->Namapeg . '
 		$data['user'] = $this->db->get_where('tbl_users', ['email' => $this->session->userdata('emaila')])->row_array();
 
 		ob_start();
-		$fileName		        	= "";
+		
 		$nosurat			        = $this->input->post('nosurat');
 		// $no_ppk						= $this->input->post('no_ppk');
 		$menimbang			        = $this->input->post('menimbang');
