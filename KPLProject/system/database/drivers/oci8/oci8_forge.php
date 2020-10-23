@@ -150,18 +150,7 @@ class CI_DB_oci8_forge extends CI_DB_forge {
 
 	// --------------------------------------------------------------------
 
-	/**
-	 * Field attribute AUTO_INCREMENT
-	 *
-	 * @param	array	&$attributes
-	 * @param	array	&$field
-	 * @return	void
-	 */
-	protected function _attr_auto_increment(&$attributes, &$field)
-	{
-		// Not supported - sequences and triggers must be used instead
-	}
-
+	
 	// --------------------------------------------------------------------
 
 	/**

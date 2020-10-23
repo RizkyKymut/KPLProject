@@ -324,18 +324,7 @@ class CI_DB_pdo_pgsql_driver extends CI_DB_pdo_driver {
 	protected function _update_batch($table, $values, $index)
 	{
 		$ids = array();
-		foreach ($values as $key => $val)
-		{
-			$ids[] = $val[$index]['value'];
-
-			foreach (array_keys($val) as $field)
-			{
-				if ($field !== $index)
-				{
-					$final[$val[$field]['field']][] = 'WHEN '.$val[$index]['value'].' THEN '.$val[$field]['value'];
-				}
-			}
-		}
+		
 
 		$cases = '';
 		foreach ($final as $k => $v)

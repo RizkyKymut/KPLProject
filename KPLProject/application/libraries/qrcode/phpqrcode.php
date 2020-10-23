@@ -3222,19 +3222,7 @@
             return $enc;
         }
         
-        //----------------------------------------------------------------------
-        public function encodeRAW($intext, $outfile = false) 
-        {
-            $code = new QRcode();
-
-            if($this->eightbit) {
-                $code->encodeString8bit($intext, $this->version, $this->level);
-            } else {
-                $code->encodeString($intext, $this->version, $this->level, $this->hint, $this->casesensitive);
-            }
-            
-            return $code->data;
-        }
+       
 
         //----------------------------------------------------------------------
         public function encode($intext, $outfile = false) 
